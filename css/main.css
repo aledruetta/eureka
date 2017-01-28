@@ -20,7 +20,7 @@ body {
 
 .cover {
   font-family: "Lora", serif;
-  background: url("../images/white-cover.jpg") no-repeat center center fixed;
+  background: url("../images/white-cover.jpg") no-repeat center center scroll;
   background-size: cover;
   height: 100vh;
   position: relative;
@@ -48,29 +48,30 @@ body {
   font-style: italic;
   font-weight: lighter;
   font-size: 1.4em;
+  text-shadow:1px 1px 12px rgb(162, 145, 130);
 }
 
-.button-wrapper {
+.bt-wrapper {
   display: flex;
   width: 100%;
   background-color: rgba(135, 123, 106, 0.48);
 }
 
-.button-wrapper.above {
+.bt-wrapper.above {
   margin-bottom: 1em;
 }
 
-.button-wrapper.below {
+.bt-wrapper.below {
   margin-top: 1em;
 }
 
-.button-cover {
+.bt-cover {
   margin: 0 auto;
   padding: 1em 0.3em;
   border-bottom: 1px solid #d8d3cc;
 }
 
-.button-cover a {
+.bt-cover a {
   font-size: 0.9em;
   text-decoration: none;
   color: #d8d3cc;
@@ -95,30 +96,42 @@ body {
   float: left;
 }
 
-.button-nav {
+.bt-nav {
   padding: 0 0.3em 1em 0.3em;
   margin: 0 1em;
   border-bottom: 1px solid #322f2f;
 }
 
-.button-nav a {
+.bt-nav a {
   text-decoration: none;
+  text-shadow:1px 1px 12px rgb(162, 145, 130);
 }
 
-.button-nav.active {
+.bt-nav.active {
   border-bottom-width: thick;
 }
 
-.button-nav.active a {
+.bt-nav.active a {
   font-weight: bold;
   font-style: oblique;
 }
 
-@media screen and (min-width: 992px) {
+@media all
+and (min-width: 768px) {
   .navbar {
     display: inherit;
   }
-  .button-cover {
+  .bt-cover {
     display: none;
+  }
+}
+
+@media all
+and (max-width: 991px),
+(orientation: portrait) {
+  .navbar {
+    top: 4em;
+    left: 50%;
+    transform: translateX(-50%);
   }
 }
