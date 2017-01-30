@@ -45,14 +45,6 @@ body {
 
 @media all
 and (max-width: 320px)
-and (orientation: landscape) {
-  .cover {
-    background-image: url("../images/cover-640-land.jpg");
-  }
-}
-
-@media all
-and (max-width: 320px)
 and (orientation: portrait) {
   .cover {
     background-image: url("../images/cover-320-port.jpg");
@@ -60,7 +52,7 @@ and (orientation: portrait) {
 }
 
 @media all
-and (min-width: 321px) and (max-width: 640px)
+and (max-width: 640px)
 and (orientation: landscape) {
   .cover {
     background-image: url("../images/cover-640-land.jpg");
