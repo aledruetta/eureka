@@ -3,12 +3,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="description" content="">
     <meta name="author" content="aledruetta@gmail.com">
     <title>Home</title>
-
-    <!-- <link rel="stylesheet" href="css/normalize.min.css"> -->
 
     <!-- BOOTSTRAP CSS Framework -->
     <!-- <link rel="stylesheet" href="bs/css/bootstrap.min.css"> -->
@@ -39,7 +37,11 @@
   <body>
 
     <div class="site-wrapper">
-      <div class="cover">
+
+      <!-- COVER
+      ====================================================================== -->
+
+      <div id="cover">
 
         <nav class="cst-navbar nav-hidden">
           <ul>
@@ -50,17 +52,17 @@
             </li>
             <li>
               <div class="bt-nav">
-                <a href="#">Venta</a>
+                <a href="#search">Venta</a>
               </div>
             </li>
             <li>
               <div class="bt-nav">
-                <a href="#">Alquiler</a>
+                <a href="#search">Alquiler</a>
               </div>
             </li>
             <li>
               <div class="bt-nav">
-                <a href="#">Contacto</a>
+                <a href="#contact">Contacto</a>
               </div>
             </li>
           </ul>
@@ -69,39 +71,126 @@
         <header>
           <div class="bt-wrapper above">
             <div class="bt-cover">
-              <a href="#contacto">Contacto</a>
+              <a href="#contact">Contacto</a>
             </div>
           </div>
           <div class="transparency">
-            <h1 class="title">Eureka</h1>
-            <h2 class="subtitle">Estudio Jurídico Inmobiliario</h2>
+            <h1 class="title text-center">Eureka</h1>
+            <h2 class="subtitle text-center">Estudio Jurídico Inmobiliario</h2>
           </div>
           <div class="bt-wrapper below">
             <div class="bt-cover">
-              <a href="#venta">Venta</a>
+              <a href="#search">Venta</a>
             </div>
           </div>
           <div class="bt-wrapper below">
             <div class="bt-cover">
-              <a href="#alquiler">Alquiler</a>
+              <a href="#search">Alquiler</a>
             </div>
           </div>
         </header>
 
       </div> <!-- END .cover -->
 
-      <div class="search">
+      <!-- SEARCH
+      ====================================================================== -->
 
+      <div id="search">
+        <div class="container">
+          <form class="" action="index.html" method="post">
+
+            <div id="btn-grp-selector" class="btn-group" role="group">
+              <button type="button" class="btn btn-primary">Venta</button>
+              <button type="button" class="btn btn-primary">Alquiler</button>
+            </div>
+
+            <div class="form-group">
+              <label class="" for="ciudad">Ciudad</label>
+              <select id="ciudad" class="form-control" name="ciudad">
+                <option value="santa fe">Santa Fe</option>
+                <option value="rincon">Rincón</option>
+                <option value="colastine">Colastiné</option>
+                <option value="arroyo leyes">Arroyo Leyes</option>
+                <option value="la guardia">La Guardia</option>
+                <option value="santo tome">Santo Tomé</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="" for="tipoProp">Tipo Propiedad</label>
+              <select id="tipoProp" class="form-control" name="tipoProp">
+                <option value="casa">Casa</option>
+                <option value="departamento">Departamento</option>
+                <option value="terreno">Terreno</option>
+                <option value="cochera">Cochera</option>
+                <option value="galpon">Galpón</option>
+                <option value="local">Local</option>
+                <option value="oficina">Oficina</option>
+                <option value="quinta">Quinta</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="" for="precio-min">Precio Mínimo</label>
+              <output class="" for="precio-min" name="result-min">50000</output>
+              <input type="range" id="precio-min" class="form-control" name="precio-min"
+                  min="0" max="1000000" step="1000" value="50000">
+
+              <label class="" for="precio-max">Precio Máximo</label>
+              <output class="" for="precio-max" name="result-max">350000</output>
+              <input type="range" id="precio-max" class="form-control" name="precio-max"
+                  min="0" max="1000000" step="1000" value="350000">
+            </div>
+
+            <div class="form-group">
+                <label class="" for="habitaciones">Habitaciones</label>
+                <input type="number" id="habitaciones" class="form-control"
+                    name="habitaciones" value="1">
+            </div>
+
+            <div class="form-group">
+              <div class="checkbox">
+                <label for="cochera"><input type="checkbox" id="cochera"
+                    name="cochera" value=""> Cochera</label>
+              </div>
+
+              <div class="checkbox">
+                <label for="pileta"><input type="checkbox" id="pileta"
+                    name="pileta" value=""> Pileta</label>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <button type="submit" class="btn btn-primary center-block">Consultar</button>
+            </div>
+
+          </form>
+        </div>
       </div> <!-- END .search -->
 
-      <div class="contact">
+      <!-- RESULTS
+      ====================================================================== -->
 
+      <div id="results">
+        <div class="container">
+
+        </div>
+      </div> <!-- END .results -->
+
+      <!-- CONTACT
+      ====================================================================== -->
+
+      <div id="contact">
+        <div class="container">
+
+        </div>
       </div> <!-- END .contact -->
+
     </div> <!-- END .site-wrapper -->
 
 
     <!-- SCRIPTS
-    ===================================================== -->
+    ======================================================================== -->
 
     <!-- jQuery JavaScript library -->
     <!-- <script src="js/jquery-3.1.1.min.js"></script> -->
@@ -118,5 +207,6 @@
       integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
       crossorigin="anonymous">
     </script>
+
   </body>
 </html>

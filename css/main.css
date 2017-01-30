@@ -18,7 +18,7 @@ body {
 /* COVER Style
 ------------------------------ */
 
-.cover {
+#cover {
   position: relative;
   height: 100vh;
   background-repeat: no-repeat;
@@ -31,14 +31,19 @@ body {
   font-family: "Lora", serif;
 }
 
+#search {
+  position: relative;
+  height: 100vh;
+}
+
 @media all and (orientation: landscape) {
-  .cover {
+  #cover {
     background-image: url("../images/cover-raw-land.jpg");
   }
 }
 
 @media all and (orientation: portrait) {
-  .cover {
+  #cover {
     background-image: url("../images/cover-raw-port.jpg");
   }
 }
@@ -46,7 +51,7 @@ body {
 @media all
 and (max-width: 320px)
 and (orientation: portrait) {
-  .cover {
+  #cover {
     background-image: url("../images/cover-320-port.jpg");
   }
 }
@@ -54,7 +59,7 @@ and (orientation: portrait) {
 @media all
 and (max-width: 640px)
 and (orientation: landscape) {
-  .cover {
+  #cover {
     background-image: url("../images/cover-640-land.jpg");
   }
 }
@@ -62,7 +67,7 @@ and (orientation: landscape) {
 @media all
 and (min-width: 321px) and (max-width: 425px)
 and (orientation: portrait) {
-  .cover {
+  #cover {
     background-image: url("../images/cover-425-port.jpg");
   }
 }
@@ -70,7 +75,7 @@ and (orientation: portrait) {
 @media all
 and (min-width: 426px) and (max-width: 768px)
 and (orientation: portrait) {
-  .cover {
+  #cover {
     background-image: url("../images/cover-768-port.jpg");
   }
 }
@@ -78,7 +83,7 @@ and (orientation: portrait) {
 @media all
 and (min-width: 641px) and (max-width: 1024px)
 and (orientation: landscape) {
-  .cover {
+  #cover {
     background-image: url("../images/cover-1024-land.jpg");
   }
 }
@@ -86,7 +91,7 @@ and (orientation: landscape) {
 @media all
 and (min-width: 769px) and (max-width: 1024px)
 and (orientation: portrait) {
-  .cover {
+  #cover {
     background-image: url("../images/cover-1024-port.jpg");
   }
 }
@@ -94,7 +99,7 @@ and (orientation: portrait) {
 @media all
 and (min-width: 1025px) and (max-width: 1280px)
 and (orientation: landscape) {
-  .cover {
+  #cover {
     background-image: url("../images/cover-1280-land.jpg");
   }
 }
@@ -102,17 +107,16 @@ and (orientation: landscape) {
 @media all
 and (min-width: 1281px) and (max-width: 2048px)
 and (orientation: landscape) {
-  .cover {
+  #cover {
     background-image: url("../images/cover-2048-land.jpg");
   }
 }
 
-.cover > header {
+#cover > header {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   width: 100%;
-  text-align: center;
 }
 
 .transparency {
@@ -216,4 +220,13 @@ and (max-width: 991px),
     left: 50%;
     transform: translateX(-50%);
   }
+}
+
+/* SEARCH Style
+---------------------------------------------- */
+
+#btn-grp-selector {
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 1em;
 }
