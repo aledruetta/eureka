@@ -43,26 +43,26 @@
 
       <div id="cover">
 
-        <nav class="cst-navbar nav-hidden">
+        <nav class="cst-nbar nav-hidden">
           <ul>
             <li>
               <div class="bt-nav active">
-                <a href="#">Home</a>
+                <a class="bt-nav-a" href="#">Home</a>
               </div>
             </li>
             <li>
               <div class="bt-nav">
-                <a href="#search">Venta</a>
+                <a class="bt-nav-a" href="#search">Venta</a>
               </div>
             </li>
             <li>
               <div class="bt-nav">
-                <a href="#search">Alquiler</a>
+                <a class="bt-nav-a" href="#search">Alquiler</a>
               </div>
             </li>
             <li>
               <div class="bt-nav">
-                <a href="#contact">Contacto</a>
+                <a class="bt-nav-a" href="#contact">Contacto</a>
               </div>
             </li>
           </ul>
@@ -71,7 +71,7 @@
         <header>
           <div class="bt-wrapper above">
             <div class="bt-cover">
-              <a href="#contact">Contacto</a>
+              <a class="bt-nav-a" href="#contact">Contacto</a>
             </div>
           </div>
           <div class="transparency">
@@ -80,12 +80,12 @@
           </div>
           <div class="bt-wrapper below">
             <div class="bt-cover">
-              <a href="#search">Venta</a>
+              <a class="bt-nav-a" href="#search">Venta</a>
             </div>
           </div>
           <div class="bt-wrapper below">
             <div class="bt-cover">
-              <a href="#search">Alquiler</a>
+              <a class="bt-nav-a" href="#search">Alquiler</a>
             </div>
           </div>
         </header>
@@ -99,9 +99,9 @@
         <div class="container">
           <form class="" action="index.html" method="post">
 
-            <div id="btn-grp-selector" class="btn-group" role="group">
-              <button type="button" class="btn btn-primary">Venta</button>
-              <button type="button" class="btn btn-primary">Alquiler</button>
+            <div id="bt-grp-tipoTrans" class="btn-group" role="group">
+              <button type="button" id="bt-venta" class="btn btn-primary">Venta</button>
+              <button type="button" id="bt-alquiler" class="btn btn-primary">Alquiler</button>
             </div>
 
             <div class="form-group">
@@ -207,6 +207,10 @@
       integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
       crossorigin="anonymous">
     </script>
+
+    <!-- CUSTOM Scripts -->
+    <script src="js/custom.min.js"></script>
+    <!-- <script src="js/custom.js"></script> -->
 
   </body>
 </html>
