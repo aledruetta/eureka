@@ -9,6 +9,7 @@ $(document).ready(function() {
 
     options.search.appendCities();
     options.search.appendTipoProp();
+    anuncios.append();
 
     /* Evento botones navegación página principal */
     $btNavA.click(function() {
