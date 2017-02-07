@@ -1,21 +1,23 @@
 var HTMLOption = '<option value="%value%">%text%</option>';
-var HTMLAnuncio = '<div class="thumbnail anuncio">' +
-    '<img src="%foto%" alt="%titulo-alt%">' +
-    '<div class="tipo-precio">' +
-      '<div class="tipo-precio-inner">' +
-        '<span>%precio%</span>' +
-      '</div>' +
-    '</div>' +
-    '<ol class="breadcrumb">' +
-      '<li>%tipoTrans%</li>' +
-      '<li>%tipoProp%</li>' +
-      '<li class="active">%ciudad%</li>' +
-    '</ol>' +
-    '<div class="caption anuncio-detalles">' +
-      '<h3 class="anuncio-titulo">%titulo%</h3>' +
-      '<a href="#" class="btn btn-primary" role="button">Más detalles</a>' +
-    '</div>' +
-'</div>';
+var HTMLAnuncio = '<div class="col-md-6">\n' +
+  '<div class="thumbnail anuncio">\n' +
+    '<img src="%foto%" alt="%titulo-alt%">\n' +
+    '<div class="tipo-precio">\n' +
+      '<div class="tipo-precio-inner">\n' +
+        '<span>%precio%</span>\n' +
+      '</div>\n' +
+    '</div>\n' +
+    '<ol class="breadcrumb">\n' +
+      '<li>%tipoTrans%</li>\n' +
+      '<li>%tipoProp%</li>\n' +
+      '<li class="active">%ciudad%</li>\n' +
+    '</ol>\n' +
+    '<div class="caption anuncio-detalles">\n' +
+      '<h3 class="anuncio-titulo">%titulo%</h3>\n' +
+      '<a href="#" class="btn btn-primary" role="button">Más detalles</a>\n' +
+    '</div>\n' +
+  '</div>\n' +
+'</div>\n';
 
 var options = {
     'search': {
@@ -143,7 +145,8 @@ options.search.appendTipoProp = function() {
 
 anuncios.append = function() {
 
-    $resultados = $('#resultados');
+    console.log(HTMLAnuncio);
+    $resultados = $('#resultados > .row');
 
     this.forEach(function(anuncio) {
 

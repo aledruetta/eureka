@@ -226,19 +226,22 @@ and (max-width: 991px),
 
 #search {
   position: relative;
-  height: 100vh;
+}
+
+#search-form,
+#resultados {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
 }
 
 #bt-grp-tipoTrans {
   left: 50%;
   transform: translateX(-50%);
-  margin-top: 1em;
+  margin-bottom: 1em;
 }
 
-#search div[class*='col-'] {
-  padding-top: 1em;
-  padding-bottom: 1em;
-}
+/* RESULTS Style
+------------------------- */
 
 .anuncio {
   padding: 0;

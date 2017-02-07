@@ -95,26 +95,30 @@
       <!-- SEARCH
       ====================================================================== -->
 
-      <div id="search">
-        <div class="container">
-          <div class="row">
+      <div id="search" class="container">
+        <div class="row">
 
-            <div class="col-sm-4">
-              <form class="" action="index.html" method="post">
+        <!-- FORM -->
 
-                <div id="bt-grp-tipoTrans" class="btn-group" role="group">
-                  <button type="button" id="bt-venta" class="btn btn-primary">Venta</button>
-                  <button type="button" id="bt-alquiler" class="btn btn-primary">Alquiler</button>
+          <div id="search-form" class="col-sm-4 col-md-3">
+            <form class="" action="index.html" method="post">
+
+              <!-- Button Group Tipo Transacción -->
+              <div id="bt-grp-tipoTrans" class="btn-group" role="group">
+                <button type="button" id="bt-venta" class="btn btn-primary">Venta</button>
+                <button type="button" id="bt-alquiler" class="btn btn-primary">Alquiler</button>
+              </div>
+
+              <div class="search-form-groups">
+
+                <div class="form-group">
+                  <label class="" for="tipoProp">Tipo Propiedad</label>
+                  <select id="tipoProp" class="form-control" name="tipoProp"></select>
                 </div>
 
                 <div class="form-group">
                   <label class="" for="ciudad">Ciudad</label>
                   <select id="ciudad" class="form-control" name="ciudad"></select>
-                </div>
-
-                <div class="form-group">
-                  <label class="" for="tipoProp">Tipo Propiedad</label>
-                  <select id="tipoProp" class="form-control" name="tipoProp"></select>
                 </div>
 
                 <div class="form-group">
@@ -147,20 +151,23 @@
                   </div>
                 </div>
 
-                <div class="form-group">
-                  <button type="submit" class="btn btn-primary center-block">Consultar</button>
-                </div>
+              </div>
 
-              </form>
-            </div> <!-- END .col -->
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary center-block">Consultar</button>
+              </div>
 
-          <!-- RESULTS -->
+            </form>
+          </div> <!-- END .col -->
 
-            <div id="resultados" class="col-sm-8"></div> <!-- END .col -->
+        <!-- RESULTS -->
 
-          </div> <!-- END .row -->
-        </div> <!-- END .container -->
-      </div> <!-- END .search -->
+          <div id="resultados" class="col-sm-8 col-md-9">
+            <div class="row"></div>
+          </div> <!-- END .col -->
+
+        </div> <!-- END .row -->
+      </div> <!-- END .container -->
 
       <!-- CONTACT
       ====================================================================== -->
