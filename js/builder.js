@@ -1,7 +1,9 @@
-var HTMLOption = '<option value="%value%">%text%</option>';
+var HTMLOption = '<option value="%value%">%text%</option>\n';
 var HTMLAnuncio = '<div class="col-md-6">\n' +
   '<div class="thumbnail anuncio">\n' +
-    '<img src="%foto%" alt="%titulo-alt%">\n' +
+    '<img class="img-responsive" src="images/%foto%-sm.jpg" alt="%titulo%">\n' +
+      // 'sizes="(max-width: 767px) 100vw, (min-width: 768px) 66vw, (min-width: 992px) 37vw" ' +
+      // 'srcset="images/%foto%-md.jpg 900w, images/%foto%-lg.jpg 1200w">\n' +
     '<div class="tipo-precio">\n' +
       '<div class="tipo-precio-inner">\n' +
         '<span>%precio%</span>\n' +
@@ -18,6 +20,7 @@ var HTMLAnuncio = '<div class="col-md-6">\n' +
     '</div>\n' +
   '</div>\n' +
 '</div>\n';
+var HTMLgalleryClearfix = '<div class="clearfix visible-md visible-lg"></div>\n';
 
 var options = {
     'search': {
@@ -98,7 +101,7 @@ var options = {
 };
 
 var anuncios = [{
-        'foto': 'images/8067-01.jpg',
+        'foto': '8067-01',
         'precio': '$ 2.000.000',
         'titulo': 'Excepcional Casa en Villa California',
         'tipoTrans': 'Venta',
@@ -106,7 +109,23 @@ var anuncios = [{
         'ciudad': 'Rincón',
     },
     {
-        'foto': 'images/8068-01.jpg',
+        'foto': '8068-01',
+        'precio': '$ 6.000',
+        'titulo': 'Casa en Buen Estado, Centro',
+        'tipoTrans': 'Alquiler',
+        'tipoProp': 'Casa',
+        'ciudad': 'Santa Fe',
+    },
+    {
+        'foto': '8067-01',
+        'precio': '$ 2.000.000',
+        'titulo': 'Excepcional Casa en Villa California',
+        'tipoTrans': 'Venta',
+        'tipoProp': 'Casa',
+        'ciudad': 'Rincón',
+    },
+    {
+        'foto': '8068-01',
         'precio': '$ 6.000',
         'titulo': 'Casa en Buen Estado, Centro',
         'tipoTrans': 'Alquiler',
@@ -117,7 +136,7 @@ var anuncios = [{
 
 options.search.appendCities = function() {
 
-    $ciudad = $('#ciudad');
+    var $ciudad = $('#ciudad');
 
     this.cities.forEach(function(city) {
 
@@ -131,7 +150,7 @@ options.search.appendCities = function() {
 
 options.search.appendTipoProp = function() {
 
-    $tipoProp = $('#tipoProp');
+    var $tipoProp = $('#tipoProp');
 
     this.tipoProp.forEach(function(prop) {
 
@@ -145,21 +164,27 @@ options.search.appendTipoProp = function() {
 
 anuncios.append = function() {
 
-    console.log(HTMLAnuncio);
-    $resultados = $('#resultados > .row');
+    var $resultados = $('#resultados > .row');
+    var count = 1;
 
     this.forEach(function(anuncio) {
 
       var formattedAnuncio = HTMLAnuncio
-        .replace('%foto%', anuncio.foto)
+        .replace(/%foto%/g, anuncio.foto)
         .replace('%precio%', anuncio.precio)
-        .replace('%titulo-alt%', anuncio.titulo)
-        .replace('%titulo%', anuncio.titulo)
+        .replace(/%titulo%/g, anuncio.titulo)
         .replace('%tipoTrans%', anuncio.tipoTrans)
         .replace('%tipoProp%', anuncio.tipoProp)
         .replace('%ciudad%', anuncio.ciudad);
 
       $resultados.append(formattedAnuncio);
+
+      // Add clearfix class to fix div float in -md and -lg 6 columns
+      if (count % 2 === 0) {
+        $resultados.append(HTMLgalleryClearfix);
+      }
+
+      count++;
     });
 
 };
