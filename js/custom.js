@@ -35,7 +35,7 @@ $(document).ready(function() {
     /* EventListener botones 'Más detalles' */
     $('.bt-detalles').click(function() {
 
-        toggleBtDetalles($(this));
+        toggleDetalles($(this));
     });
 });
 
@@ -55,13 +55,20 @@ function toggleBtGrp($btGrp, active) {
     }
 }
 
-function toggleBtDetalles($btn) {
+function toggleDetalles($btn) {
 
-    var text = 'Menos...';
+    var $masDetalles = $(HTMLAnuncioCaptionDetalles);
 
-    if ($btn.text() !== HTMLAnuncioBtDetalles) {
-        text = HTMLAnuncioBtDetalles;
+    // hide ALL unordered lists
+    $('.anuncio-mas-detalles').hide();
+
+    if ($btn.text() !== HTMLAnuncioBtDetallesText) {
+        // set ALL button standard text
+        $('.bt-detalles').text(HTMLAnuncioBtDetallesText);
+    } else {
+        // add unordered list
+        $btn.before($masDetalles);
+        // set button text
+        $btn.text('Menos...');
     }
-
-    $btn.text(text);
 }

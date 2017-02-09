@@ -13,11 +13,20 @@ var HTMLAnuncioBreadcrumb = '<ol class="breadcrumb">\n' +
     '<li>%tipoProp%</li>\n' +
     '<li class="active">%ciudad%</li>\n' +
     '</ol>\n';
-var HTMLAnuncioBtDetalles = 'Más detalles';
+var HTMLAnuncioBtDetallesText = 'Más detalles';
 var HTMLAnuncioCaption = '<div class="caption anuncio-detalles">\n' +
     '<h3 class="anuncio-titulo">%titulo%</h3>\n' +
-    '<button type="button" class="btn btn-primary bt-detalles">' + HTMLAnuncioBtDetalles + '</button>\n' +
+    '<button type="button" class="btn btn-primary bt-detalles">' + HTMLAnuncioBtDetallesText + '</button>\n' +
     '</div>\n';
+var HTMLAnuncioCaptionDetalles = '<ul class="list-unstyled anuncio-mas-detalles">\n' +
+    '<li><span>Referencia:</span>%referencia%</li>\n' +
+    '<li><span>Dirección:</span>%direccion%</li>\n' +
+    '<li><span>Terreno:</span>%terreno%</li>\n' +
+    '<li><span>Habitaciones:</span>%habitaciones%</li>\n' +
+    '<li><span>Cochera:</span>%cochera%</li>\n' +
+    '<li><span>Pileta:</span>%pileta%</li>\n' +
+    '<li><span>Descripción:</span>%descripcion%</li>\n' +
+    '</ul>\n';
 var HTMLgalleryClearfix = '<div class="clearfix visible-md visible-lg"></div>\n';
 
 var options = {
