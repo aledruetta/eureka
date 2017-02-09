@@ -1,9 +1,10 @@
 var HTMLOption = '<option value="%value%">%text%</option>\n';
 var HTMLAnuncio = '<div class="col-md-6">\n' +
   '<div class="thumbnail anuncio">\n' +
-    '<img class="img-responsive" src="images/%foto%-sm.jpg" alt="%titulo%">\n' +
-      // 'sizes="(max-width: 767px) 100vw, (min-width: 768px) 66vw, (min-width: 992px) 37vw" ' +
-      // 'srcset="images/%foto%-md.jpg 900w, images/%foto%-lg.jpg 1200w">\n' +
+    // '<img class="img-responsive" src="images/%foto%-sm.jpg" alt="%titulo%">\n' +
+    '<img class="img-responsive" src="images/%foto%-sm.jpg" ' +
+        'srcset="images/%foto%-sm.jpg 425w, images/%foto%-md.jpg 820w, images/%foto%-lg.jpg 1200w"' +
+        'sizes="(max-width: 767px) 100vw, (max-width: 991px) 75vw, 37vw">\n' +
     '<div class="tipo-precio">\n' +
       '<div class="tipo-precio-inner">\n' +
         '<span>%precio%</span>\n' +
@@ -111,7 +112,15 @@ var anuncios = [{
     {
         'foto': '8068-01',
         'precio': '$ 6.000',
-        'titulo': 'Casa en Buen Estado, Centro',
+        'titulo': 'Casa Buen Estado de Conservación, Centro',
+        'tipoTrans': 'Alquiler',
+        'tipoProp': 'Casa',
+        'ciudad': 'Santa Fe',
+    },
+    {
+        'foto': '8068-01',
+        'precio': '$ 6.000',
+        'titulo': 'Casa Buen Estado de Conservación, Centro',
         'tipoTrans': 'Alquiler',
         'tipoProp': 'Casa',
         'ciudad': 'Santa Fe',
@@ -123,14 +132,6 @@ var anuncios = [{
         'tipoTrans': 'Venta',
         'tipoProp': 'Casa',
         'ciudad': 'Rincón',
-    },
-    {
-        'foto': '8068-01',
-        'precio': '$ 6.000',
-        'titulo': 'Casa en Buen Estado, Centro',
-        'tipoTrans': 'Alquiler',
-        'tipoProp': 'Casa',
-        'ciudad': 'Santa Fe',
     },
 ];
 
