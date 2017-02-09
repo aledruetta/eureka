@@ -2,7 +2,7 @@ var HTMLOption = '<option value="%value%">%text%</option>\n';
 var HTMLAnuncio = '<div class="col-md-6">\n' +
   '<div class="thumbnail anuncio">\n' +
     // '<img class="img-responsive" src="images/%foto%-sm.jpg" alt="%titulo%">\n' +
-    '<img class="img-responsive" src="images/%foto%-sm.jpg" ' +
+    '<img class="img-responsive" src="images/%foto%-sm.jpg" alt="%titulo%" ' +
         'srcset="images/%foto%-sm.jpg 425w, images/%foto%-md.jpg 820w, images/%foto%-lg.jpg 1200w"' +
         'sizes="(max-width: 767px) 100vw, (max-width: 991px) 75vw, 37vw">\n' +
     '<div class="tipo-precio">\n' +
