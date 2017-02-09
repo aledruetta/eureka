@@ -11,7 +11,7 @@ $(document).ready(function() {
     options.search.appendTipoProp();
     anuncios.append();
 
-    /* Evento botones navegación página principal */
+    /* EventListener botones navegación página principal */
     $btNavA.click(function() {
 
         if ($(this).html() === 'Venta') {
@@ -25,11 +25,17 @@ $(document).ready(function() {
         toggleBtGrp($bgTipoTrans, active);
     });
 
-    /* Evento botones selección tipo transacción */
+    /* EventListener botones selección tipo transacción */
     $bgTipoTrans.children().click(function() {
 
         var active = $(this).index();
         toggleBtGrp($bgTipoTrans, active);
+    });
+
+    /* EventListener botones 'Más detalles' */
+    $('.bt-detalles').click(function() {
+
+        toggleBtDetalles($(this));
     });
 });
 
@@ -47,4 +53,15 @@ function toggleBtGrp($btGrp, active) {
     if (!$childActive.hasClass('active')) {
         $childActive.addClass('active');
     }
+}
+
+function toggleBtDetalles($btn) {
+
+    var text = 'Menos...';
+
+    if ($btn.text() !== HTMLAnuncioBtDetalles) {
+        text = HTMLAnuncioBtDetalles;
+    }
+
+    $btn.text(text);
 }

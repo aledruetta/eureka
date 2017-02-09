@@ -13,9 +13,10 @@ var HTMLAnuncioBreadcrumb = '<ol class="breadcrumb">\n' +
     '<li>%tipoProp%</li>\n' +
     '<li class="active">%ciudad%</li>\n' +
     '</ol>\n';
+var HTMLAnuncioBtDetalles = 'Más detalles';
 var HTMLAnuncioCaption = '<div class="caption anuncio-detalles">\n' +
     '<h3 class="anuncio-titulo">%titulo%</h3>\n' +
-    '<a href="#" class="btn btn-primary" role="button">Más detalles</a>\n' +
+    '<button type="button" class="btn btn-primary bt-detalles">' + HTMLAnuncioBtDetalles + '</button>\n' +
     '</div>\n';
 var HTMLgalleryClearfix = '<div class="clearfix visible-md visible-lg"></div>\n';
 
