@@ -1,26 +1,22 @@
 var HTMLOption = '<option value="%value%">%text%</option>\n';
-var HTMLAnuncio = '<div class="col-md-6">\n' +
-  '<div class="thumbnail anuncio">\n' +
-    // '<img class="img-responsive" src="images/%foto%-sm.jpg" alt="%titulo%">\n' +
-    '<img class="img-responsive" src="images/%foto%-sm.jpg" alt="%titulo%" ' +
-        'srcset="images/%foto%-sm.jpg 425w, images/%foto%-md.jpg 820w, images/%foto%-lg.jpg 1200w"' +
-        'sizes="(max-width: 767px) 100vw, (max-width: 991px) 75vw, 37vw">\n' +
-    '<div class="tipo-precio">\n' +
-      '<div class="tipo-precio-inner">\n' +
-        '<span>%precio%</span>\n' +
-      '</div>\n' +
+var HTMLAnuncioThumbnail = '<div class="col-md-6"><div class="thumbnail anuncio"></div></div>\n';
+var HTMLAnuncioImg = '<img class="img-responsive" src="images/%foto%-sm.jpg" alt="%titulo%" ' +
+    'srcset="images/%foto%-sm.jpg 425w, images/%foto%-md.jpg 820w, images/%foto%-lg.jpg 1200w"' +
+    'sizes="(max-width: 767px) 100vw, (max-width: 991px) 75vw, 35vw">\n';
+var HTMLAnuncioPrecio = '<div class="tipo-precio">\n' +
+    '<div class="tipo-precio-inner">\n' +
+    '<span>%precio%</span>\n' +
     '</div>\n' +
-    '<ol class="breadcrumb">\n' +
-      '<li>%tipoTrans%</li>\n' +
-      '<li>%tipoProp%</li>\n' +
-      '<li class="active">%ciudad%</li>\n' +
-    '</ol>\n' +
-    '<div class="caption anuncio-detalles">\n' +
-      '<h3 class="anuncio-titulo">%titulo%</h3>\n' +
-      '<a href="#" class="btn btn-primary" role="button">Más detalles</a>\n' +
-    '</div>\n' +
-  '</div>\n' +
-'</div>\n';
+    '</div>\n';
+var HTMLAnuncioBreadcrumb = '<ol class="breadcrumb">\n' +
+    '<li>%tipoTrans%</li>\n' +
+    '<li>%tipoProp%</li>\n' +
+    '<li class="active">%ciudad%</li>\n' +
+    '</ol>\n';
+var HTMLAnuncioCaption = '<div class="caption anuncio-detalles">\n' +
+    '<h3 class="anuncio-titulo">%titulo%</h3>\n' +
+    '<a href="#" class="btn btn-primary" role="button">Más detalles</a>\n' +
+    '</div>\n';
 var HTMLgalleryClearfix = '<div class="clearfix visible-md visible-lg"></div>\n';
 
 var options = {
@@ -163,6 +159,8 @@ options.search.appendTipoProp = function() {
     });
 };
 
+/* ANUNCIOS
+==================================================== */
 anuncios.append = function() {
 
     var $resultados = $('#resultados > .row');
@@ -170,22 +168,22 @@ anuncios.append = function() {
 
     this.forEach(function(anuncio) {
 
-      var formattedAnuncio = HTMLAnuncio
-        .replace(/%foto%/g, anuncio.foto)
-        .replace('%precio%', anuncio.precio)
-        .replace(/%titulo%/g, anuncio.titulo)
-        .replace('%tipoTrans%', anuncio.tipoTrans)
-        .replace('%tipoProp%', anuncio.tipoProp)
-        .replace('%ciudad%', anuncio.ciudad);
+        $('#resultados > .row').append(HTMLAnuncioThumbnail);
+        $('.anuncio').last()
+            .append(HTMLAnuncioImg.replace(/%foto%/g, anuncio.foto))
+            .append(HTMLAnuncioPrecio.replace('%precio%', anuncio.precio))
+            .append(HTMLAnuncioBreadcrumb
+                .replace('%tipoTrans%', anuncio.tipoTrans)
+                .replace('%tipoProp%', anuncio.tipoProp)
+                .replace('%ciudad%', anuncio.ciudad))
+            .append(HTMLAnuncioCaption.replace(/%titulo%/g, anuncio.titulo));
 
-      $resultados.append(formattedAnuncio);
+        // Add clearfix class to fix div float in -md and -lg 6 columns
+        if (count % 2 === 0) {
+            $resultados.append(HTMLgalleryClearfix);
+        }
 
-      // Add clearfix class to fix div float in -md and -lg 6 columns
-      if (count % 2 === 0) {
-        $resultados.append(HTMLgalleryClearfix);
-      }
-
-      count++;
+        count++;
     });
 
 };
