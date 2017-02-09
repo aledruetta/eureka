@@ -57,18 +57,25 @@ function toggleBtGrp($btGrp, active) {
 
 function toggleDetalles($btn) {
 
-    var $masDetalles = $(HTMLAnuncioCaptionDetalles);
+    var text = $btn.text();
+
+    resetBtDetalles();
+
+    if (text === HTMLAnuncioBtDetallesText) {
+
+        // add unordered list
+        $btn.before(HTMLAnuncioCaptionDetalles);
+
+        // set button text
+        $btn.text('Menos...');
+    }
+}
+
+function resetBtDetalles() {
 
     // hide ALL unordered lists
     $('.anuncio-mas-detalles').hide();
 
-    if ($btn.text() !== HTMLAnuncioBtDetallesText) {
-        // set ALL button standard text
-        $('.bt-detalles').text(HTMLAnuncioBtDetallesText);
-    } else {
-        // add unordered list
-        $btn.before($masDetalles);
-        // set button text
-        $btn.text('Menos...');
-    }
+    // set ALL button standard text
+    $('.bt-detalles').text(HTMLAnuncioBtDetallesText);
 }
