@@ -11,14 +11,14 @@ var HTMLAnuncioPrecio = '<div class="tipo-precio">\n' +
 var HTMLAnuncioBreadcrumb = '<ol class="breadcrumb">\n' +
     '<li>%tipoTrans%</li>\n' +
     '<li>%tipoProp%</li>\n' +
-    '<li class="active">%ciudad%</li>\n' +
+    '<li>%ciudad%</li>\n' +
     '</ol>\n';
 var HTMLAnuncioBtDetallesText = 'Más detalles';
 var HTMLAnuncioCaption = '<div class="caption anuncio-detalles">\n' +
     '<h3 class="anuncio-titulo">%titulo%</h3>\n' +
     '<button type="button" class="btn btn-primary bt-detalles">' + HTMLAnuncioBtDetallesText + '</button>\n' +
     '</div>\n';
-var HTMLAnuncioCaptionDetalles = '<ul class="list-unstyled anuncio-mas-detalles">\n' +
+var HTMLAnuncioCaptionDetalles = '<ul class="list-unstyled collapse anuncio-mas-detalles">\n' +
     '<li><span>Referencia:</span>%referencia%</li>\n' +
     '<li><span>Dirección:</span>%direccion%</li>\n' +
     '<li><span>Terreno:</span>%terreno%</li>\n' +
@@ -108,36 +108,64 @@ var options = {
 };
 
 var anuncios = [{
+        'referencia': '8067',
         'foto': '8067-01',
         'precio': '$ 2.000.000',
         'titulo': 'Excepcional Casa en Villa California',
         'tipoTrans': 'Venta',
         'tipoProp': 'Casa',
         'ciudad': 'Rincón',
+        'direccion': 'Calle Primera, 200',
+        'habitaciones': 3,
+        'cochera': 2,
+        'pileta': 'sí',
+        'terreno': 1200,
+        'descripcion': 'Casa ámplia, moderna, 2 suites, lavadero, asador, jardín.',
     },
     {
+        'referencia': '8068',
         'foto': '8068-01',
         'precio': '$ 6.000',
         'titulo': 'Casa Buen Estado de Conservación, Centro',
         'tipoTrans': 'Alquiler',
         'tipoProp': 'Casa',
         'ciudad': 'Santa Fe',
+        'direccion': 'Calle Segunda, 4000',
+        'habitaciones': 8,
+        'cochera': 5,
+        'pileta': 'no',
+        'terreno': 5000,
+        'descripcion': 'Casa ámplia, antígua, 4 suites, lavadero, salón de fiestas, establo.',
     },
     {
+        'referencia': '8068',
         'foto': '8068-01',
         'precio': '$ 6.000',
         'titulo': 'Casa Buen Estado de Conservación, Centro',
         'tipoTrans': 'Alquiler',
         'tipoProp': 'Casa',
         'ciudad': 'Santa Fe',
+        'direccion': 'Calle Segunda, 4000',
+        'habitaciones': 8,
+        'cochera': 5,
+        'pileta': 'no',
+        'terreno': 5000,
+        'descripcion': 'Casa ámplia, antígua, 4 suites, lavadero, salón de fiestas, establo.',
     },
     {
+        'referencia': '8067',
         'foto': '8067-01',
         'precio': '$ 2.000.000',
         'titulo': 'Excepcional Casa en Villa California',
         'tipoTrans': 'Venta',
         'tipoProp': 'Casa',
         'ciudad': 'Rincón',
+        'direccion': 'Calle Primera, 200',
+        'habitaciones': 3,
+        'cochera': 2,
+        'pileta': 'sí',
+        'terreno': 1200,
+        'descripcion': 'Casa ámplia, moderna, 2 suites, lavadero, asador, jardín.',
     },
 ];
 
@@ -187,6 +215,15 @@ anuncios.append = function() {
                 .replace('%tipoProp%', anuncio.tipoProp)
                 .replace('%ciudad%', anuncio.ciudad))
             .append(HTMLAnuncioCaption.replace(/%titulo%/g, anuncio.titulo));
+        $('.anuncio-detalles > h3').last()
+            .after(HTMLAnuncioCaptionDetalles
+            .replace('%referencia%', anuncio.referencia)
+            .replace('%direccion%', anuncio.direccion)
+            .replace('%terreno%', anuncio.terreno)
+            .replace('%habitaciones%', anuncio.habitaciones)
+            .replace('%cochera%', anuncio.cochera)
+            .replace('%pileta%', anuncio.pileta)
+            .replace('%descripcion%', anuncio.descripcion));
 
         // Add clearfix class to fix div float in -md and -lg 6 columns
         if (count % 2 === 0) {

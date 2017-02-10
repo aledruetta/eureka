@@ -63,8 +63,7 @@ function toggleDetalles($btn) {
 
     if (text === HTMLAnuncioBtDetallesText) {
 
-        // add unordered list
-        $btn.before(HTMLAnuncioCaptionDetalles);
+        $btn.siblings('.anuncio-mas-detalles').show();
 
         // set button text
         $btn.text('Menos...');
