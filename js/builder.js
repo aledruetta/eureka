@@ -120,7 +120,7 @@ var anuncios = [{
         'cochera': 2,
         'pileta': 'sí',
         'terreno': 1200,
-        'descripcion': 'Casa ámplia, moderna, 2 suites, lavadero, asador, jardín.',
+        'descripcion': 'Casa amplia, moderna, 2 suites, lavadero, asador, jardín.',
     },
     {
         'referencia': '8068',
@@ -135,7 +135,7 @@ var anuncios = [{
         'cochera': 5,
         'pileta': 'no',
         'terreno': 5000,
-        'descripcion': 'Casa ámplia, antígua, 4 suites, lavadero, salón de fiestas, establo.',
+        'descripcion': 'Casa amplia, antigua, 4 suites, lavadero, salón de fiestas, establo.',
     },
     {
         'referencia': '8068',
@@ -150,7 +150,7 @@ var anuncios = [{
         'cochera': 5,
         'pileta': 'no',
         'terreno': 5000,
-        'descripcion': 'Casa ámplia, antígua, 4 suites, lavadero, salón de fiestas, establo.',
+        'descripcion': 'Casa amplia, antigua, 4 suites, lavadero, salón de fiestas, establo.',
     },
     {
         'referencia': '8067',
@@ -165,7 +165,7 @@ var anuncios = [{
         'cochera': 2,
         'pileta': 'sí',
         'terreno': 1200,
-        'descripcion': 'Casa ámplia, moderna, 2 suites, lavadero, asador, jardín.',
+        'descripcion': 'Casa amplia, moderna, 2 suites, lavadero, asador, jardín.',
     },
 ];
 
