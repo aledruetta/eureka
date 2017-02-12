@@ -1,0 +1,33 @@
+{
+  "name": "eureka-web-page",
+  "version": "0.1.0",
+  "devDependencies": {
+    "grunt": "~1.0.0",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-jshint": "^1.1.0"
+  },
+  "description": "Eureka Estudio Jurídico Inmobiliario Web Page",
+  "main": "Gruntfile.js",
+  "dependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aledruetta/eureka.git"
+  },
+  "keywords": [
+    "inmobiliaria",
+    "estudio",
+    "jurídico",
+    "compra",
+    "venta",
+    "alquiler"
+  ],
+  "author": "Alejandro Druetta",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aledruetta/eureka/issues"
+  },
+  "homepage": "https://github.com/aledruetta/eureka#readme"
+}

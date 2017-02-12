@@ -1,8 +1,7 @@
 var HTMLOption = '<option value="%value%">%text%</option>\n';
 var HTMLAnuncioThumbnail = '<div class="col-md-6"><div class="thumbnail anuncio"></div></div>\n';
-var HTMLAnuncioImg = '<img class="img-responsive" src="images/%foto%-sm.jpg" alt="%titulo%" ' +
-    'srcset="images/%foto%-sm.jpg 425w, images/%foto%-md.jpg 820w, images/%foto%-lg.jpg 1200w"' +
-    'sizes="(max-width: 767px) 100vw, (max-width: 991px) 75vw, 35vw">\n';
+var HTMLAnuncioImg = '<img class="img-responsive" src="images/%referencia%-01-1x.jpg" alt="%titulo%" ' +
+    'srcset="images/%referencia%-01-1x.jpg 1x, images/%referencia%-01-2x.jpg 2x">';
 var HTMLAnuncioPrecio = '<div class="tipo-precio">\n' +
     '<div class="tipo-precio-inner">\n' +
     '<span>%precio%</span>\n' +
@@ -108,64 +107,74 @@ var options = {
 };
 
 var anuncios = [{
-        'referencia': '8067',
-        'foto': '8067-01',
-        'precio': '$ 2.000.000',
-        'titulo': 'Excepcional Casa en Villa California',
+        'referencia': '6069',
+        'precio': '$ 1.150.000',
+        'titulo': 'Vende Casa Quinta en Los Zapallos Apta para Creditos y PROCREAR!!!',
         'tipoTrans': 'Venta',
         'tipoProp': 'Casa',
         'ciudad': 'Rincón',
-        'direccion': 'Calle Primera, 200',
-        'habitaciones': 3,
+        'direccion': 'Calle Los Amarillos a metros del río',
+        'habitaciones': 2,
         'cochera': 2,
         'pileta': 'sí',
-        'terreno': 1200,
-        'descripcion': 'Casa amplia, moderna, 2 suites, lavadero, asador, jardín.',
+        'terreno': '15 por 22,5',
+        'descripcion': '2 dorm, cocina comedor, baño, galería/cochera para 2 autos, piscina',
     },
     {
-        'referencia': '8068',
-        'foto': '8068-01',
-        'precio': '$ 6.000',
-        'titulo': 'Casa Buen Estado de Conservación, Centro',
-        'tipoTrans': 'Alquiler',
-        'tipoProp': 'Casa',
-        'ciudad': 'Santa Fe',
-        'direccion': 'Calle Segunda, 4000',
-        'habitaciones': 8,
-        'cochera': 5,
-        'pileta': 'no',
-        'terreno': 5000,
-        'descripcion': 'Casa amplia, antigua, 4 suites, lavadero, salón de fiestas, establo.',
-    },
-    {
-        'referencia': '8068',
-        'foto': '8068-01',
-        'precio': '$ 6.000',
-        'titulo': 'Casa Buen Estado de Conservación, Centro',
-        'tipoTrans': 'Alquiler',
-        'tipoProp': 'Casa',
-        'ciudad': 'Santa Fe',
-        'direccion': 'Calle Segunda, 4000',
-        'habitaciones': 8,
-        'cochera': 5,
-        'pileta': 'no',
-        'terreno': 5000,
-        'descripcion': 'Casa amplia, antigua, 4 suites, lavadero, salón de fiestas, establo.',
-    },
-    {
-        'referencia': '8067',
-        'foto': '8067-01',
-        'precio': '$ 2.000.000',
-        'titulo': 'Excepcional Casa en Villa California',
+        'referencia': '6069',
+        'precio': '$ 1.150.000',
+        'titulo': 'Vende Casa Quinta en Los Zapallos Apta para Creditos y PROCREAR!!!',
         'tipoTrans': 'Venta',
         'tipoProp': 'Casa',
         'ciudad': 'Rincón',
-        'direccion': 'Calle Primera, 200',
-        'habitaciones': 3,
+        'direccion': 'Calle Los Amarillos a metros del río',
+        'habitaciones': 2,
         'cochera': 2,
         'pileta': 'sí',
-        'terreno': 1200,
-        'descripcion': 'Casa amplia, moderna, 2 suites, lavadero, asador, jardín.',
+        'terreno': '15 por 22,5',
+        'descripcion': '2 dorm, cocina comedor, baño, galería/cochera para 2 autos, piscina',
+    },
+    {
+        'referencia': '6069',
+        'precio': '$ 1.150.000',
+        'titulo': 'Vende Casa Quinta en Los Zapallos Apta para Creditos y PROCREAR!!!',
+        'tipoTrans': 'Venta',
+        'tipoProp': 'Casa',
+        'ciudad': 'Rincón',
+        'direccion': 'Calle Los Amarillos a metros del río',
+        'habitaciones': 2,
+        'cochera': 2,
+        'pileta': 'sí',
+        'terreno': '15 por 22,5',
+        'descripcion': '2 dorm, cocina comedor, baño, galería/cochera para 2 autos, piscina',
+    },
+    {
+        'referencia': '6069',
+        'precio': '$ 1.150.000',
+        'titulo': 'Vende Casa Quinta en Los Zapallos Apta para Creditos y PROCREAR!!!',
+        'tipoTrans': 'Venta',
+        'tipoProp': 'Casa',
+        'ciudad': 'Rincón',
+        'direccion': 'Calle Los Amarillos a metros del río',
+        'habitaciones': 2,
+        'cochera': 2,
+        'pileta': 'sí',
+        'terreno': '15 por 22,5',
+        'descripcion': '2 dorm, cocina comedor, baño, galería/cochera para 2 autos, piscina',
+    },
+    {
+        'referencia': '6069',
+        'precio': '$ 1.150.000',
+        'titulo': 'Vende Casa Quinta en Los Zapallos Apta para Creditos y PROCREAR!!!',
+        'tipoTrans': 'Venta',
+        'tipoProp': 'Casa',
+        'ciudad': 'Rincón',
+        'direccion': 'Calle Los Amarillos a metros del río',
+        'habitaciones': 2,
+        'cochera': 2,
+        'pileta': 'sí',
+        'terreno': '15 por 22,5',
+        'descripcion': '2 dorm, cocina comedor, baño, galería/cochera para 2 autos, piscina',
     },
 ];
 
@@ -208,7 +217,7 @@ anuncios.append = function() {
 
         $('#resultados > .row').append(HTMLAnuncioThumbnail);
         $('.anuncio').last()
-            .append(HTMLAnuncioImg.replace(/%foto%/g, anuncio.foto))
+            .append(HTMLAnuncioImg.replace(/%referencia%/g, anuncio.referencia))
             .append(HTMLAnuncioPrecio.replace('%precio%', anuncio.precio))
             .append(HTMLAnuncioBreadcrumb
                 .replace('%tipoTrans%', anuncio.tipoTrans)
