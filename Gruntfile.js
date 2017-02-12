@@ -12,22 +12,28 @@ module.exports = function(grunt) {
             target1: ['Gruntfile.js', 'src/js/*.js'],
         },
 
+        uglify: {
+            target1: {
+                src: 'src/js/builder.js',
+                dest: 'build/builder.min.js'
+            },
+            target2: {
+                src: 'src/js/custom.js',
+                dest: 'build/custom.min.js',
+            },
+        },
+
         concat: {
             // 2. Configuration for concatinating files goes here.
-            js: {
-                src: [
-                    'libs/jquery-*.min.js',
-                    'libs/bs/bootstrap.min.js',
-                    'src/js/*.js',
-                ],
-                dest: 'build/minified.js',
+            target1: {
+                files: {
+                    'build/scripts.js': ['libs/jquery-*.min.js', 'libs/bs/js/bootstrap.min.js', 'build/*.min.js'],
+                },
             },
-            css: {
-                src: [
-                    'libs/bs/css/bootstrap.min.css',
-                    'src/css/*.css',
-                ],
-                dest: 'build/minified.css',
+            target2: {
+                files: {
+                    'build/style.css': ['libs/bs/css/bootstrap.min.css', 'src/css/*.css'],
+                },
             },
         }
 
@@ -36,8 +42,9 @@ module.exports = function(grunt) {
     // 3. Where we tell Grunt we plan to use this plug-in.
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
 
     // 4. Where we tell Grunt what to do when we type "grunt" into the terminal.
-    grunt.registerTask('default', ['jshint', 'concat']);
+    grunt.registerTask('default', ['jshint', 'uglify', 'concat']);
 
 };
