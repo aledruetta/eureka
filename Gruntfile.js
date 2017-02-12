@@ -9,25 +9,25 @@ module.exports = function(grunt) {
                 curly: true,
                 eqeqeq: true,
             },
-            target1: ['Gruntfile.js', 'js/*.js'],
+            target1: ['Gruntfile.js', 'src/js/*.js'],
         },
 
         concat: {
             // 2. Configuration for concatinating files goes here.
             js: {
                 src: [
-                    'lib/jquery-*.min.js',
-                    'lib/bs/bootstrap.min.js',
-                    'js/*.js',
+                    'libs/jquery-*.min.js',
+                    'libs/bs/bootstrap.min.js',
+                    'src/js/*.js',
                 ],
-                dest: 'js/build/minified.js',
+                dest: 'build/minified.js',
             },
             css: {
                 src: [
-                    'lib/bs/css/bootstrap.min.css',
-                    'css/*.css',
+                    'libs/bs/css/bootstrap.min.css',
+                    'src/css/*.css',
                 ],
-                dest: 'css/build/minified.css',
+                dest: 'build/minified.css',
             },
         }
 
