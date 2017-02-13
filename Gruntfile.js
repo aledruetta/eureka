@@ -4,47 +4,71 @@ module.exports = function(grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
 
-        jshint: {
-            options: {
-                curly: true,
-                eqeqeq: true,
-            },
-            target1: ['Gruntfile.js', 'src/js/*.js'],
+        uglify: {
+            target: {
+                options: {
+                    sourceMap: true,
+                },
+                files: [{
+                    expand: true,
+                    cwd: 'src/js',
+                    src: '*.js',
+                    dest: 'tmp',
+                    ext: '.min.js'
+                }]
+            }
         },
 
-        uglify: {
-            target1: {
-                src: 'src/js/builder.js',
-                dest: 'tmp/builder.min.js'
-            },
-            target2: {
-                src: 'src/js/custom.js',
-                dest: 'tmp/custom.min.js',
-            },
+        cssmin: {
+            target: {
+                files: [{
+                    expand: true,
+                    cwd: 'src/css',
+                    src: '*.css',
+                    dest: 'tmp',
+                    ext: '.min.css'
+                }]
+            }
         },
 
         concat: {
-            // 2. Configuration for concatinating files goes here.
-            target1: {
-                files: {
-                    'build/scripts.js': ['tmp/*.min.js'],
+            target: {
+                options: {
+                    sourceMap: true,
                 },
-            },
-            target2: {
                 files: {
-                    'build/style.css': ['src/css/*.css'],
-                },
-            },
-        }
+                    'build/production.min.js': 'tmp/*.min.js',
+                    'build/production.min.css': 'tmp/*.min.css',
+                }
+            }
+        },
 
+        htmlmin: {
+            target: {
+                options: {
+                    removeComments: true,
+                    collapseWhitespace: true,
+                },
+                files: {
+                    'index.html': 'src/html/index.html',
+                }
+            }
+        },
     });
 
     // 3. Where we tell Grunt we plan to use this plug-in.
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-cssmin');
+    grunt.loadNpmTasks('grunt-contrib-htmlmin');
 
     // 4. Where we tell Grunt what to do when we type "grunt" into the terminal.
-    grunt.registerTask('default', ['jshint', 'uglify', 'concat']);
+    grunt.registerTask('default', [
+        'uglify',
+        'cssmin',
+        'concat',
+        'htmlmin',
+    ]);
 
 };

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es_AR">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="description" content="">
+    <meta name="author" content="aledruetta@gmail.com">
+    <title>Home</title>
+
+    <!-- <link rel="stylesheet" href="libs/bs/css/bootstrap.min.css"> -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+      crossorigin="anonymous">
+
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    rel="stylesheet"
+    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+    crossorigin="anonymous"> -->
+
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,400i" rel="stylesheet">
+
+    <!-- GRUNT CSS -->
+    <link rel="stylesheet" href="build/production.min.css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+
+    <div class="site-wrapper">
+
+      <!-- COVER
+      ====================================================================== -->
+
+      <div id="cover">
+
+        <nav class="cst-nbar nav-hidden">
+          <ul>
+            <li>
+              <div class="bt-nav active">
+                <a class="bt-nav-a" href="#">Home</a>
+              </div>
+            </li>
+            <li>
+              <div class="bt-nav">
+                <a class="bt-nav-a" href="#search">Venta</a>
+              </div>
+            </li>
+            <li>
+              <div class="bt-nav">
+                <a class="bt-nav-a" href="#search">Alquiler</a>
+              </div>
+            </li>
+            <li>
+              <div class="bt-nav">
+                <a class="bt-nav-a" href="#contact">Contacto</a>
+              </div>
+            </li>
+          </ul>
+        </nav>
+
+        <header>
+          <div class="bt-wrapper above">
+            <div class="bt-cover">
+              <a class="bt-nav-a" href="#contact">Contacto</a>
+            </div>
+          </div>
+          <div class="transparency">
+            <h1 class="title text-center">Eureka</h1>
+            <h2 class="subtitle text-center">Estudio Jurídico Inmobiliario</h2>
+          </div>
+          <div class="bt-wrapper below">
+            <div class="bt-cover">
+              <a class="bt-nav-a" href="#search">Venta</a>
+            </div>
+          </div>
+          <div class="bt-wrapper below">
+            <div class="bt-cover">
+              <a class="bt-nav-a" href="#search">Alquiler</a>
+            </div>
+          </div>
+        </header>
+
+      </div> <!-- END .cover -->
+
+      <!-- SEARCH
+      ====================================================================== -->
+
+      <div id="search" class="container">
+        <div class="row">
+
+        <!-- FORM -->
+
+          <div id="search-form" class="col-sm-4 col-md-3">
+            <form class="" action="index.html" method="post">
+
+              <!-- Button Group Tipo Transacción -->
+              <div id="bt-grp-tipoTrans" class="btn-group" role="group">
+                <button type="button" id="bt-venta" class="btn btn-primary">Venta</button>
+                <button type="button" id="bt-alquiler" class="btn btn-primary">Alquiler</button>
+              </div>
+
+              <div class="search-form-groups">
+
+                <div class="form-group">
+                  <label class="" for="tipoProp">Tipo Propiedad</label>
+                  <select id="tipoProp" class="form-control" name="tipoProp"></select>
+                </div>
+
+                <div class="form-group">
+                  <label class="" for="ciudad">Ciudad</label>
+                  <select id="ciudad" class="form-control" name="ciudad"></select>
+                </div>
+
+                <div class="form-group">
+                  <label class="" for="precio-min">Precio Mínimo</label>
+                  <output class="" for="precio-min" name="result-min">50000</output>
+                  <input type="range" id="precio-min" class="form-control" name="precio-min"
+                      min="0" max="1000000" step="1000" value="50000">
+
+                  <label class="" for="precio-max">Precio Máximo</label>
+                  <output class="" for="precio-max" name="result-max">350000</output>
+                  <input type="range" id="precio-max" class="form-control" name="precio-max"
+                      min="0" max="1000000" step="1000" value="350000">
+                </div>
+
+                <div class="form-group">
+                    <label class="" for="habitaciones">Habitaciones</label>
+                    <input type="number" id="habitaciones" class="form-control"
+                        name="habitaciones" value="0">
+                </div>
+
+                <div class="form-group">
+                  <div class="checkbox">
+                    <label for="cochera"><input type="checkbox" id="cochera"
+                        name="cochera" value=""> Cochera</label>
+                  </div>
+
+                  <div class="checkbox">
+                    <label for="pileta"><input type="checkbox" id="pileta"
+                        name="pileta" value=""> Pileta</label>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary center-block">Consultar</button>
+              </div>
+
+            </form>
+          </div> <!-- END .col -->
+
+        <!-- RESULTS -->
+
+          <div id="resultados" class="col-sm-8 col-md-9">
+            <div class="row"></div>
+          </div> <!-- END .col -->
+
+        </div> <!-- END .row -->
+      </div> <!-- END .container -->
+
+      <!-- CONTACT
+      ====================================================================== -->
+
+      <div id="contact">
+        <div class="container">
+
+        </div>
+      </div> <!-- END .contact -->
+
+    </div> <!-- END .site-wrapper -->
+
+
+    <!-- SCRIPTS
+    ======================================================================== -->
+
+    <script
+		  src="https://code.jquery.com/jquery-3.1.1.min.js"
+		  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+		  crossorigin="anonymous">
+    </script>
+
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+      integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+      crossorigin="anonymous">
+    </script>
+
+    <!-- <script src="libs/jquery-3.1.1.min.js"></script> -->
+    <!-- <script src="libs/bs/bootstrap.min.js"></script> -->
+    <script src="build/production.min.js"></script>
+
+  </body>
+</html>
