@@ -15,11 +15,11 @@ module.exports = function(grunt) {
         uglify: {
             target1: {
                 src: 'src/js/builder.js',
-                dest: 'build/builder.min.js'
+                dest: 'tmp/builder.min.js'
             },
             target2: {
                 src: 'src/js/custom.js',
-                dest: 'build/custom.min.js',
+                dest: 'tmp/custom.min.js',
             },
         },
 
@@ -27,7 +27,7 @@ module.exports = function(grunt) {
             // 2. Configuration for concatinating files goes here.
             target1: {
                 files: {
-                    'build/scripts.js': ['libs/jquery-*.min.js', 'libs/bs/js/bootstrap.min.js', 'build/*.min.js'],
+                    'build/scripts.js': ['libs/jquery-*.min.js', 'libs/bs/js/bootstrap.min.js', 'tmp/*.min.js'],
                 },
             },
             target2: {

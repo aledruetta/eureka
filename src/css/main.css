@@ -31,13 +31,13 @@ body::-webkit-scrollbar {
 
 @media all and (orientation: landscape) {
   #cover {
-    background-image: url("../../images/cover-raw-land.jpg");
+    background-image: url("../images/cover-raw-land.jpg");
   }
 }
 
 @media all and (orientation: portrait) {
   #cover {
-    background-image: url("../../images/cover-raw-port.jpg");
+    background-image: url("../images/cover-raw-port.jpg");
   }
 }
 
@@ -45,7 +45,7 @@ body::-webkit-scrollbar {
 and (max-width: 320px)
 and (orientation: portrait) {
   #cover {
-    background-image: url("../../images/cover-320-port.jpg");
+    background-image: url("../images/cover-320-port.jpg");
   }
 }
 
@@ -53,7 +53,7 @@ and (orientation: portrait) {
 and (max-width: 640px)
 and (orientation: landscape) {
   #cover {
-    background-image: url("../../images/cover-640-land.jpg");
+    background-image: url("../images/cover-640-land.jpg");
   }
 }
 
@@ -61,7 +61,7 @@ and (orientation: landscape) {
 and (min-width: 321px) and (max-width: 425px)
 and (orientation: portrait) {
   #cover {
-    background-image: url("../../images/cover-425-port.jpg");
+    background-image: url("../images/cover-425-port.jpg");
   }
 }
 
@@ -69,7 +69,7 @@ and (orientation: portrait) {
 and (min-width: 426px) and (max-width: 768px)
 and (orientation: portrait) {
   #cover {
-    background-image: url("../../images/cover-768-port.jpg");
+    background-image: url("../images/cover-768-port.jpg");
   }
 }
 
@@ -77,7 +77,7 @@ and (orientation: portrait) {
 and (min-width: 641px) and (max-width: 1024px)
 and (orientation: landscape) {
   #cover {
-    background-image: url("../../images/cover-1024-land.jpg");
+    background-image: url("../images/cover-1024-land.jpg");
   }
 }
 
@@ -85,7 +85,7 @@ and (orientation: landscape) {
 and (min-width: 769px) and (max-width: 1024px)
 and (orientation: portrait) {
   #cover {
-    background-image: url("../../images/cover-1024-port.jpg");
+    background-image: url("../images/cover-1024-port.jpg");
   }
 }
 
@@ -93,7 +93,7 @@ and (orientation: portrait) {
 and (min-width: 1025px) and (max-width: 1280px)
 and (orientation: landscape) {
   #cover {
-    background-image: url("../../images/cover-1280-land.jpg");
+    background-image: url("../images/cover-1280-land.jpg");
   }
 }
 
@@ -101,7 +101,7 @@ and (orientation: landscape) {
 and (min-width: 1281px) and (max-width: 2048px)
 and (orientation: landscape) {
   #cover {
-    background-image: url("../../images/cover-2048-land.jpg");
+    background-image: url("../images/cover-2048-land.jpg");
   }
 }
 
