@@ -27,12 +27,12 @@ module.exports = function(grunt) {
             // 2. Configuration for concatinating files goes here.
             target1: {
                 files: {
-                    'build/scripts.js': ['libs/jquery-*.min.js', 'libs/bs/js/bootstrap.min.js', 'tmp/*.min.js'],
+                    'build/scripts.js': ['tmp/*.min.js'],
                 },
             },
             target2: {
                 files: {
-                    'build/style.css': ['libs/bs/css/bootstrap.min.css', 'src/css/*.css'],
+                    'build/style.css': ['src/css/*.css'],
                 },
             },
         }
