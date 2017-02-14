@@ -109,9 +109,22 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks('grunt-responsive-images');
     grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.loadNpmTasks('grunt-processhtml');
 
     // 4. Where we tell Grunt what to do when we type "grunt" into the terminal.
-    grunt.registerTask('default', [
+    grunt.registerTask('default', []);
+    grunt.registerTask('minify', [
+        'uglify',
+        'cssmin',
+        'concat',
+        'htmlmin',
+        'clean',
+    ]);
+    grunt.registerTask('images', [
+        'responsive_images',
+        'imagemin'
+    ]);
+    grunt.registerTask('deploy', [
         'uglify',
         'cssmin',
         'concat',

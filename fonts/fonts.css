@@ -1,0 +1,22 @@
+@font-face {
+    font-family: 'Lora';
+    font-style: normal;
+    font-weight: 400;
+    src: url(Lora_400_normal.eot); /* {{embedded-opentype-gf-url}} */
+    src: local('☺'),
+        url(Lora_400_normal.eot?#iefix) format('embedded-opentype'), /* {{embedded-opentype-gf-url}} */
+        url(Lora_400_normal.woff) format('woff'), /* http://fonts.gstatic.com/s/lora/v10/5-AYViExptypIdFoLKAxTA.woff */
+        url(Lora_400_normal.ttf) format('truetype'), /* http://fonts.gstatic.com/s/lora/v10/MVabO2jbLZ8M0pzO6jqg2fesZW2xOQ-xsNqO47m55DA.ttf */
+        url(Lora_400_normal.svg#Lora_400_normal) format('svg'); /* http://fonts.gstatic.com/l/font?kit=b9Q3-ov7xEcW76ymki76Ag&skey=1d294b6d956fb8e&v=v10#Lora */
+}
+@font-face {
+    font-family: 'Lora';
+    font-style: italic;
+    font-weight: 400;
+    src: url(Lora_400_italic.eot); /* {{embedded-opentype-gf-url}} */
+    src: local('☺'),
+        url(Lora_400_italic.eot?#iefix) format('embedded-opentype'), /* {{embedded-opentype-gf-url}} */
+        url(Lora_400_italic.woff) format('woff'), /* http://fonts.gstatic.com/s/lora/v10/wXeMvRh7Gui36p_I04Ex6g.woff */
+        url(Lora_400_italic.ttf) format('truetype'), /* http://fonts.gstatic.com/s/lora/v10/5Ay4Lbc6l_v4RrGh5wBv6evvDin1pK8aKteLpeZ5c0A.ttf */
+        url(Lora_400_italic.svg#Lora_400_italic) format('svg'); /* {{svg-gf-url}} */
+}
