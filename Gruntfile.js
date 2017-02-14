@@ -94,6 +94,10 @@ module.exports = function(grunt) {
                 }]
             }
         },
+
+        clean: {
+            tmp: ['tmp/*'],
+        }
     });
 
     // 3. Where we tell Grunt we plan to use this plug-in.
@@ -104,6 +108,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-htmlmin');
     grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks('grunt-responsive-images');
+    grunt.loadNpmTasks('grunt-contrib-clean');
 
     // 4. Where we tell Grunt what to do when we type "grunt" into the terminal.
     grunt.registerTask('default', [
@@ -113,6 +118,7 @@ module.exports = function(grunt) {
         'htmlmin',
         'responsive_images',
         'imagemin',
+        'clean',
     ]);
 
 };
