@@ -8,7 +8,8 @@
     "grunt-contrib-htmlmin": "^2.2.0",
     "grunt-contrib-imagemin": "^1.0.1",
     "grunt-contrib-jshint": "^1.1.0",
-    "grunt-contrib-uglify": "^2.1.0"
+    "grunt-contrib-uglify": "^2.1.0",
+    "grunt-responsive-images": "^1.10.1"
   },
   "description": "Eureka Estudio Jurídico Inmobiliario Web Page",
   "main": "Gruntfile.js",

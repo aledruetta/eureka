@@ -57,6 +57,43 @@ module.exports = function(grunt) {
                 }
             }
         },
+
+        responsive_images: {
+            gallery: {
+                options: {
+                    sizes: [{
+                        name: '1x',
+                        width: 428,
+                        quality: 80,
+                    },{
+                        name: '2x',
+                        width: 856,
+                        quality: 80,
+                    }],
+                },
+                files: [{
+                    expand: true,
+                    cwd: 'images/raw',
+                    src: ['**.{jpg,jpeg,png}'],
+                    dest: 'images/gallery',
+                }]
+            }
+        },
+
+        imagemin: {
+            jpg: {
+                options: {
+                    progressive: true,
+                },
+                files: [{
+                    expand: true,
+                    cwd: 'images/gallery',
+                    src: ['*.jpg', '*.jpeg'],
+                    dest: 'images/gallery',
+                    ext: '.jpg',
+                }]
+            }
+        },
     });
 
     // 3. Where we tell Grunt we plan to use this plug-in.
@@ -65,6 +102,8 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-htmlmin');
+    grunt.loadNpmTasks('grunt-contrib-imagemin');
+    grunt.loadNpmTasks('grunt-responsive-images');
 
     // 4. Where we tell Grunt what to do when we type "grunt" into the terminal.
     grunt.registerTask('default', [
@@ -72,6 +111,8 @@ module.exports = function(grunt) {
         'cssmin',
         'concat',
         'htmlmin',
+        'responsive_images',
+        'imagemin',
     ]);
 
 };
