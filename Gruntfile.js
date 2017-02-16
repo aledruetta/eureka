@@ -1,14 +1,13 @@
 module.exports = function(grunt) {
 
-    // 1. All configuration goes here
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
 
         uglify: {
-            target: {
-                options: {
-                    sourceMap: true,
-                },
+            options: {
+                sourceMap: true,
+            },
+            deploy: {
                 files: [{
                     expand: true,
                     cwd: 'src/js',
@@ -23,7 +22,7 @@ module.exports = function(grunt) {
             options: {
                 sourceMap: true,
             },
-            target: {
+            deploy: {
                 files: [{
                     expand: true,
                     cwd: 'src/css',
@@ -35,56 +34,51 @@ module.exports = function(grunt) {
         },
 
         concat: {
-            target: {
-                options: {
-                    sourceMap: true,
-                },
-                files: {
-                    'build/production.min.js': 'tmp/*.min.js',
-                    'build/production.min.css': 'tmp/*.min.css',
-                }
+            options: {
+                sourceMap: true,
+            },
+            deploy: {
+                files: [
+                    {src: 'tmp/*.min.js', dest: 'build/js/production.min.js'},
+                    {src: 'tmp/*.min.css', dest: 'build/css/production.min.css'},
+                ]
             }
         },
 
         htmlmin: {
-            target: {
-                options: {
-                    removeComments: true,
-                    collapseWhitespace: true,
-                },
-                files: {
-                    'index.html': 'src/html/index.html',
-                }
+            options: {
+                removeComments: true,
+                collapseWhitespace: true,
+            },
+            deploy: {
+                files: [
+                    {src: 'index.html', dest: 'index.html'},
+                ]
             }
         },
 
         responsive_images: {
-            gallery: {
-                options: {
-                    sizes: [{
-                        name: '1x',
-                        width: 428,
-                        quality: 80,
-                    },{
-                        name: '2x',
-                        width: 856,
-                        quality: 80,
-                    }],
-                },
+            options: {
+                sizes: [
+                    {name: '1x', width: 428, quality: 80},
+                    {name: '2x', width: 856, quality: 80},
+                ],
+            },
+            devel: {
                 files: [{
                     expand: true,
                     cwd: 'images/raw',
-                    src: ['**.{jpg,jpeg,png}'],
+                    src: ['*.{jpg,jpeg,png}'],
                     dest: 'images/gallery',
                 }]
-            }
+            },
         },
 
         imagemin: {
-            jpg: {
-                options: {
-                    progressive: true,
-                },
+            options: {
+                progressive: true,
+            },
+            devel: {
                 files: [{
                     expand: true,
                     cwd: 'images/gallery',
@@ -97,40 +91,36 @@ module.exports = function(grunt) {
 
         clean: {
             tmp: ['tmp/*'],
-        }
+        },
+
+        processhtml: {
+            devel: {
+                files: [
+                    {src: 'src/html/index.html', dest: 'index.html'},
+                ]
+            },
+            deploy: {
+                files: [
+                    {src: 'src/html/index.html', dest: 'index.html'},
+                ]
+            }
+        },
     });
 
-    // 3. Where we tell Grunt we plan to use this plug-in.
-    grunt.loadNpmTasks('grunt-contrib-concat');
-    grunt.loadNpmTasks('grunt-contrib-jshint');
-    grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.loadNpmTasks('grunt-contrib-cssmin');
-    grunt.loadNpmTasks('grunt-contrib-htmlmin');
-    grunt.loadNpmTasks('grunt-contrib-imagemin');
-    grunt.loadNpmTasks('grunt-responsive-images');
-    grunt.loadNpmTasks('grunt-contrib-clean');
-    grunt.loadNpmTasks('grunt-processhtml');
+    require('load-grunt-tasks')(grunt);
 
-    // 4. Where we tell Grunt what to do when we type "grunt" into the terminal.
     grunt.registerTask('default', []);
-    grunt.registerTask('minify', [
-        'uglify',
-        'cssmin',
-        'concat',
-        'htmlmin',
-        'clean',
-    ]);
-    grunt.registerTask('images', [
-        'responsive_images',
-        'imagemin'
+    grunt.registerTask('devel', [
+        'responsive_images:devel',
+        'imagemin:devel',
+        'processhtml:devel',
     ]);
     grunt.registerTask('deploy', [
-        'uglify',
-        'cssmin',
-        'concat',
-        'htmlmin',
-        'responsive_images',
-        'imagemin',
+        'uglify:deploy',
+        'cssmin:deploy',
+        'concat:deploy',
+        'processhtml:deploy',
+        'htmlmin:deploy',
         'clean',
     ]);
 
