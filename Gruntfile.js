@@ -67,9 +67,9 @@ module.exports = function(grunt) {
             devel: {
                 files: [{
                     expand: true,
-                    cwd: 'images/raw',
+                    cwd: 'src/images/gallery',
                     src: ['*.{jpg,jpeg,png}'],
-                    dest: 'images/gallery',
+                    dest: 'build/images/gallery',
                 }]
             },
         },
@@ -81,9 +81,16 @@ module.exports = function(grunt) {
             devel: {
                 files: [{
                     expand: true,
-                    cwd: 'images/gallery',
+                    cwd: 'build/images/gallery',
                     src: ['*.jpg', '*.jpeg'],
-                    dest: 'images/gallery',
+                    dest: 'build/images/gallery',
+                    ext: '.jpg',
+                },
+                {
+                    expand: true,
+                    cwd: 'src/images/cover',
+                    src: ['*.jpg', '*.jpeg'],
+                    dest: 'build/images/cover',
                     ext: '.jpg',
                 }]
             }

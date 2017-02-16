@@ -1,7 +1,7 @@
 var HTMLOption = '<option value="%value%">%text%</option>\n';
 var HTMLAnuncioThumbnail = '<div class="col-md-6"><div class="thumbnail anuncio"></div></div>\n';
-var HTMLAnuncioImg = '<img class="img-responsive" src="images/gallery/%referencia%-01-1x.jpg" alt="%titulo%" ' +
-    'srcset="images/gallery/%referencia%-01-1x.jpg 1x, images/gallery/%referencia%-01-2x.jpg 2x">';
+var HTMLAnuncioImg = '<img class="img-responsive" src="build/images/gallery/%referencia%-01-1x.jpg" alt="%titulo%" ' +
+    'srcset="build/images/gallery/%referencia%-01-1x.jpg 1x, build/images/gallery/%referencia%-01-2x.jpg 2x">';
 var HTMLAnuncioPrecio = '<div class="tipo-precio">\n' +
     '<div class="tipo-precio-inner">\n' +
     '<span>%precio%</span>\n' +
