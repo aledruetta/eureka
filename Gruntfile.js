@@ -38,9 +38,14 @@ module.exports = function(grunt) {
                 sourceMap: true,
             },
             deploy: {
-                files: [
-                    {src: 'tmp/*.min.js', dest: 'build/js/production.min.js'},
-                    {src: 'tmp/*.min.css', dest: 'build/css/production.min.css'},
+                files: [{
+                        src: 'tmp/*.min.js',
+                        dest: 'build/js/production.min.js'
+                    },
+                    {
+                        src: 'tmp/*.min.css',
+                        dest: 'build/css/production.min.css'
+                    },
                 ]
             }
         },
@@ -51,18 +56,26 @@ module.exports = function(grunt) {
                 collapseWhitespace: true,
             },
             deploy: {
-                files: [
-                    {src: 'index.html', dest: 'index.html'},
-                ]
+                files: [{
+                    src: 'index.html',
+                    dest: 'index.html'
+                }]
             }
         },
 
         responsive_images: {
             options: {
-                sizes: [
-                    {name: '1x', width: 428, quality: 80},
-                    {name: '2x', width: 856, quality: 80},
-                ],
+                sizes: [{
+                        name: '1x',
+                        width: 428,
+                        quality: 80
+                    },
+                    {
+                        name: '2x',
+                        width: 856,
+                        quality: 80
+                    }
+                ]
             },
             devel: {
                 files: [{
@@ -71,7 +84,7 @@ module.exports = function(grunt) {
                     src: ['*.{jpg,jpeg,png}'],
                     dest: 'build/images/gallery',
                 }]
-            },
+            }
         },
 
         imagemin: {
@@ -80,19 +93,20 @@ module.exports = function(grunt) {
             },
             devel: {
                 files: [{
-                    expand: true,
-                    cwd: 'build/images/gallery',
-                    src: ['*.jpg', '*.jpeg'],
-                    dest: 'build/images/gallery',
-                    ext: '.jpg',
-                },
-                {
-                    expand: true,
-                    cwd: 'src/images/cover',
-                    src: ['*.jpg', '*.jpeg'],
-                    dest: 'build/images/cover',
-                    ext: '.jpg',
-                }]
+                        expand: true,
+                        cwd: 'build/images/gallery',
+                        src: ['*.jpg', '*.jpeg'],
+                        dest: 'build/images/gallery',
+                        ext: '.jpg',
+                    },
+                    {
+                        expand: true,
+                        cwd: 'src/images/cover',
+                        src: ['*.jpg', '*.jpeg'],
+                        dest: 'build/images/cover',
+                        ext: '.jpg',
+                    }
+                ]
             }
         },
 
@@ -102,14 +116,16 @@ module.exports = function(grunt) {
 
         processhtml: {
             devel: {
-                files: [
-                    {src: 'src/html/index.html', dest: 'index.html'},
-                ]
+                files: [{
+                    src: 'src/html/index.html',
+                    dest: 'index.html'
+                }]
             },
             deploy: {
-                files: [
-                    {src: 'src/html/index.html', dest: 'index.html'},
-                ]
+                files: [{
+                    src: 'src/html/index.html',
+                    dest: 'index.html'
+                }]
             }
         },
     });
