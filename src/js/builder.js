@@ -12,10 +12,12 @@ var HTMLAnuncioBreadcrumb = '<ol class="breadcrumb">\n' +
     '<li>%tipoProp%</li>\n' +
     '<li>%ciudad%</li>\n' +
     '</ol>\n';
-var HTMLAnuncioBtDetallesText = 'Más detalles';
+var HTMLAnuncioBtDetallesInnerDown = '<span class="glyphicon glyphicon-eye-open"></span>';
+var HTMLAnuncioBtDetallesInnerUp = '<span class="glyphicon glyphicon-eye-close"></span>';
+var HTMLAnuncioBtDetallesText = ' Más detalles';
 var HTMLAnuncioCaption = '<div class="caption anuncio-detalles">\n' +
     '<h3 class="anuncio-titulo">%titulo%</h3>\n' +
-    '<button type="button" class="btn btn-primary bt-detalles">' + HTMLAnuncioBtDetallesText + '</button>\n' +
+    '<button type="button" class="btn btn-primary bt-detalles">' + HTMLAnuncioBtDetallesInnerDown + HTMLAnuncioBtDetallesText + '</button>\n' +
     '</div>\n';
 var HTMLAnuncioCaptionDetalles = '<ul class="list-unstyled collapse anuncio-mas-detalles">\n' +
     '<li><span>Referencia:</span>%referencia%</li>\n' +

@@ -41,9 +41,9 @@ $(document).ready(function() {
 
         if ( text === HTMLAnuncioBtDetallesText ) {
             $(this).siblings('.anuncio-mas-detalles').slideDown('fast');
-            $(this).text('Menos...');
+            $(this).html(HTMLAnuncioBtDetallesInnerUp + ' Menos...');
         } else {
-            $(this).text(HTMLAnuncioBtDetallesText);
+            $(this).html(HTMLAnuncioBtDetallesInnerDown + HTMLAnuncioBtDetallesText);
         }
     });
 });
@@ -67,6 +67,6 @@ function toggleBtGrp($btGrp, active) {
 function resetBtDetalles() {
 
     $('.bt-detalles').siblings('.anuncio-mas-detalles').slideUp('fast');
-    $('.bt-detalles').text(HTMLAnuncioBtDetallesText);
+    $('.bt-detalles').html(HTMLAnuncioBtDetallesInnerDown + HTMLAnuncioBtDetallesText);
 
 }

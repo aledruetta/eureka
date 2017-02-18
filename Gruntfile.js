@@ -111,7 +111,8 @@ module.exports = function(grunt) {
         },
 
         clean: {
-            tmp: ['tmp/*'],
+            devel: ['build/js/*', 'build/css/*'],
+            deploy: ['tmp/*'],
         },
 
         processhtml: {
@@ -133,10 +134,13 @@ module.exports = function(grunt) {
     require('load-grunt-tasks')(grunt);
 
     grunt.registerTask('default', []);
-    grunt.registerTask('devel', [
+    grunt.registerTask('images', [
         'responsive_images:devel',
         'imagemin:devel',
+    ]);
+    grunt.registerTask('devel', [
         'processhtml:devel',
+        'clean:devel',
     ]);
     grunt.registerTask('deploy', [
         'uglify:deploy',
@@ -144,7 +148,7 @@ module.exports = function(grunt) {
         'concat:deploy',
         'processhtml:deploy',
         'htmlmin:deploy',
-        'clean',
+        'clean:deploy',
     ]);
 
 };
