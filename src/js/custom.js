@@ -35,7 +35,16 @@ $(document).ready(function() {
     /* EventListener botones 'Más detalles' */
     $('.bt-detalles').click(function() {
 
-        toggleDetalles($(this));
+        var text = $(this).text();
+
+        resetBtDetalles();
+
+        if ( text === HTMLAnuncioBtDetallesText ) {
+            $(this).siblings('.anuncio-mas-detalles').slideDown('fast');
+            $(this).text('Menos...');
+        } else {
+            $(this).text(HTMLAnuncioBtDetallesText);
+        }
     });
 });
 
@@ -55,26 +64,9 @@ function toggleBtGrp($btGrp, active) {
     }
 }
 
-function toggleDetalles($btn) {
-
-    var text = $btn.text();
-
-    resetBtDetalles();
-
-    if (text === HTMLAnuncioBtDetallesText) {
-
-        $btn.siblings('.anuncio-mas-detalles').show();
-
-        // set button text
-        $btn.text('Menos...');
-    }
-}
-
 function resetBtDetalles() {
 
-    // hide ALL unordered lists
-    $('.anuncio-mas-detalles').hide();
-
-    // set ALL button standard text
+    $('.bt-detalles').siblings('.anuncio-mas-detalles').slideUp('fast');
     $('.bt-detalles').text(HTMLAnuncioBtDetallesText);
+
 }
