@@ -5,7 +5,7 @@ $(document).ready(function() {
     // botones selección tipo de transacción
     var $bgTipoTrans = $('#bt-grp-tipoTrans');
     // índice array botón seleccionado
-    var active;
+    var btIndex;
 
     options.search.appendCities();
     options.search.appendTipoProp();
@@ -20,21 +20,21 @@ $(document).ready(function() {
         var $bt = $(this);
 
         if ($bt.html() === 'Venta') {
-            active = 0;
+            btIndex = 0;
         } else if ($bt.html() === 'Alquiler') {
-            active = 1;
+            btIndex = 1;
         } else {
             return;
         }
 
-        toggleBtGrp($bgTipoTrans, active);
+        toggleBtGrp($bgTipoTrans, btIndex);
     });
 
     /* EventListener botones selección tipo transacción */
     $bgTipoTrans.children().click(function() {
 
-        var active = $(this).index();
-        toggleBtGrp($bgTipoTrans, active);
+        var btIndex = $(this).index();
+        toggleBtGrp($bgTipoTrans, btIndex);
     });
 
     /* EventListener botones 'Más detalles' */
@@ -64,10 +64,10 @@ $(document).ready(function() {
 
     /* Comportamineto de botones btn-group permitiendo apenas
     un botón activo simultaneamente */
-    function toggleBtGrp($btGrp, active) {
+    function toggleBtGrp($btGrp, btIndex) {
 
         var children = $btGrp.children();
-        var $childActive = $(children[active]);
+        var $childActive = $(children[btIndex]);
 
         children.each(function() {
             $(this).removeClass('active');
