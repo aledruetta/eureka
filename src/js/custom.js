@@ -36,17 +36,26 @@ $(document).ready(function() {
     $('.bt-detalles').click(function() {
 
         var text = $(this).text();
-
         resetBtDetalles();
-
-        if ( text === HTMLAnuncioBtDetallesText ) {
-            $(this).siblings('.anuncio-mas-detalles').slideDown('fast');
-            $(this).html(HTMLAnuncioBtDetallesInnerUp + ' Menos...');
-        } else {
-            $(this).html(HTMLAnuncioBtDetallesInnerDown + HTMLAnuncioBtDetallesText);
-        }
+        toggleDetalles(text, $(this));
     });
 });
+
+function toggleDetalles(text, $btn) {
+
+    if ( text === HTMLAnuncioBtDetallesText ) {
+        $btn.siblings('.anuncio-mas-detalles').slideDown('fast');
+        $btn.html(HTMLAnuncioBtDetallesInnerUp + ' Menos...');
+    } else {
+        $btn.html(HTMLAnuncioBtDetallesInnerDown + HTMLAnuncioBtDetallesText);
+    }
+}
+
+function resetBtDetalles() {
+
+    $('.bt-detalles').siblings('.anuncio-mas-detalles').slideUp('fast');
+    $('.bt-detalles').html(HTMLAnuncioBtDetallesInnerDown + HTMLAnuncioBtDetallesText);
+}
 
 /* Comportamineto de botones btn-group permitiendo apenas
    un botón activo simultaneamente */
@@ -62,11 +71,4 @@ function toggleBtGrp($btGrp, active) {
     if (!$childActive.hasClass('active')) {
         $childActive.addClass('active');
     }
-}
-
-function resetBtDetalles() {
-
-    $('.bt-detalles').siblings('.anuncio-mas-detalles').slideUp('fast');
-    $('.bt-detalles').html(HTMLAnuncioBtDetallesInnerDown + HTMLAnuncioBtDetallesText);
-
 }

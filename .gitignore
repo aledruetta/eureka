@@ -1,7 +1,7 @@
-images/raw/
+src/images/
 .tern-project
 node_modules/
 npm-debug.log
-build/*.min.js
-build/*.min.css
 tmp/
+build/css/
+build/js/
