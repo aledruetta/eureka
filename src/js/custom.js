@@ -11,12 +11,17 @@ $(document).ready(function() {
     options.search.appendTipoProp();
     anuncios.append();
 
+    // botones "más detalles"
+    var $btDetalles = $('.bt-detalles');
+
     /* EventListener botones navegación página principal */
     $btNavA.click(function() {
 
-        if ($(this).html() === 'Venta') {
+        var $bt = $(this);
+
+        if ($bt.html() === 'Venta') {
             active = 0;
-        } else if ($(this).html() === 'Alquiler') {
+        } else if ($bt.html() === 'Alquiler') {
             active = 1;
         } else {
             return;
@@ -33,42 +38,43 @@ $(document).ready(function() {
     });
 
     /* EventListener botones 'Más detalles' */
-    $('.bt-detalles').click(function() {
+    $btDetalles.click(function() {
 
-        var text = $(this).text();
+        var $bt = $(this);
+        var text = $bt.text();
         resetBtDetalles();
-        toggleDetalles(text, $(this));
+        toggleDetalles(text, $bt);
     });
+
+    function toggleDetalles(text, $bt) {
+
+        if ( text === HTMLAnuncioBtDetallesText ) {
+            $bt.siblings('.anuncio-mas-detalles').slideDown('fast');
+            $bt.html(HTMLAnuncioBtDetallesInnerUp + ' Menos...');
+        } else {
+            $bt.html(HTMLAnuncioBtDetallesInnerDown + HTMLAnuncioBtDetallesText);
+        }
+    }
+
+    function resetBtDetalles() {
+
+        $btDetalles.siblings('.anuncio-mas-detalles').slideUp('fast');
+        $btDetalles.html(HTMLAnuncioBtDetallesInnerDown + HTMLAnuncioBtDetallesText);
+    }
+
+    /* Comportamineto de botones btn-group permitiendo apenas
+    un botón activo simultaneamente */
+    function toggleBtGrp($btGrp, active) {
+
+        var children = $btGrp.children();
+        var $childActive = $(children[active]);
+
+        children.each(function() {
+            $(this).removeClass('active');
+        });
+
+        if (!$childActive.hasClass('active')) {
+            $childActive.addClass('active');
+        }
+    }
 });
-
-function toggleDetalles(text, $btn) {
-
-    if ( text === HTMLAnuncioBtDetallesText ) {
-        $btn.siblings('.anuncio-mas-detalles').slideDown('fast');
-        $btn.html(HTMLAnuncioBtDetallesInnerUp + ' Menos...');
-    } else {
-        $btn.html(HTMLAnuncioBtDetallesInnerDown + HTMLAnuncioBtDetallesText);
-    }
-}
-
-function resetBtDetalles() {
-
-    $('.bt-detalles').siblings('.anuncio-mas-detalles').slideUp('fast');
-    $('.bt-detalles').html(HTMLAnuncioBtDetallesInnerDown + HTMLAnuncioBtDetallesText);
-}
-
-/* Comportamineto de botones btn-group permitiendo apenas
-   un botón activo simultaneamente */
-function toggleBtGrp($btGrp, active) {
-
-    var children = $btGrp.children();
-    var $childActive = $(children[active]);
-
-    children.each(function() {
-        $(this).removeClass('active');
-    });
-
-    if (!$childActive.hasClass('active')) {
-        $childActive.addClass('active');
-    }
-}
