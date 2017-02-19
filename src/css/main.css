@@ -247,6 +247,38 @@ and (max-width: 991px),
   width: 100%;
 }
 
+.anuncio-imagens {
+  position: relative;
+}
+
+.gallery-chevron {
+  position: absolute;
+  background-color: rgba(17, 17, 17, 0.64);
+  color: white;
+  padding: 0.7em;
+  width: 3em;
+  height: 3em;
+  text-align: center;
+}
+
+.gallery-chevron:hover {
+  background-color: rgba(255, 255, 255, 0.64);
+  color: black;
+}
+
+.gallery-chevron--right {
+  top: calc(50% - 1.5em);
+  left: 100%;
+  transform: translateX(-100%);
+  border-radius: 4px 0 0 4px;
+}
+
+.gallery-chevron--left {
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 0 4px 4px 0;
+}
+
 .anuncio .breadcrumb {
   margin-bottom: 0;
   border-radius: 0;

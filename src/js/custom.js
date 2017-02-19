@@ -42,8 +42,10 @@ $(document).ready(function() {
 
         var $bt = $(this);
         var text = $bt.text();
+
         resetBtDetalles();
         toggleDetalles(text, $bt);
+        addGallery();
     });
 
     function toggleDetalles(text, $bt) {
@@ -60,6 +62,10 @@ $(document).ready(function() {
 
         $btDetalles.siblings('.anuncio-mas-detalles').slideUp('fast');
         $btDetalles.html(HTMLAnuncioBtDetallesInnerDown + HTMLAnuncioBtDetallesText);
+    }
+
+    function addGallery() {
+
     }
 
     /* Comportamineto de botones btn-group permitiendo apenas
