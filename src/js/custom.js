@@ -53,12 +53,32 @@ $(document).ready(function() {
 
         var $bt = $(this);
         var ref = $bt.parent('div').parent('div').attr('id');
+        var $fotoActual = $($bt.siblings('img')[0]);
+        var regex = new RegExp(ref + '-[0-9]*', 'g');
 
-        if ($bt.hasClass('gallery-chevron--right')) {
-            console.log('right');
-        } else if ($bt.hasClass('gallery-chevron--left')) {
-            console.log('left');
+        var anuncio = anuncios.find(function(anuncio) {
+            if (anuncio.referencia === ref) {
+                return anuncio;
+            }
+        });
+
+        if ($bt.hasClass('gallery-chevron--right') &&
+            (anuncio.mostrando + 1) <= anuncio.fotos) {
+
+            anuncio.mostrando++;
+        } else if ($bt.hasClass('gallery-chevron--left') &&
+            (anuncio.mostrando - 1) > 0) {
+
+            anuncio.mostrando--;
         }
+        
+        var subst = ref + '-' + anuncio.mostrando;
+
+        var src = $fotoActual.attr('src').replace(regex, subst);
+        var srcset = $fotoActual.attr('srcset').replace(regex, subst);
+
+        $fotoActual.attr('src', src);
+        $fotoActual.attr('srcset', srcset);
     });
 
     function toggleDetalles(text, $bt) {
