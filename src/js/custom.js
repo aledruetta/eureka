@@ -13,6 +13,8 @@ $(document).ready(function() {
 
     // botones "más detalles"
     var $btDetalles = $('.bt-detalles');
+    // botones galeria imagens
+    var $galleryChevron = $('.gallery-chevron');
 
     /* EventListener botones navegación página principal */
     $btNavA.click(function() {
@@ -45,7 +47,18 @@ $(document).ready(function() {
 
         resetBtDetalles();
         toggleDetalles(text, $bt);
-        addGallery();
+    });
+
+    $galleryChevron.click(function() {
+
+        var $bt = $(this);
+        var ref = $bt.parent('div').parent('div').attr('id');
+
+        if ($bt.hasClass('gallery-chevron--right')) {
+            console.log('right');
+        } else if ($bt.hasClass('gallery-chevron--left')) {
+            console.log('left');
+        }
     });
 
     function toggleDetalles(text, $bt) {
@@ -62,10 +75,6 @@ $(document).ready(function() {
 
         $btDetalles.siblings('.anuncio-mas-detalles').slideUp('fast');
         $btDetalles.html(HTMLAnuncioBtDetallesInnerDown + HTMLAnuncioBtDetallesText);
-    }
-
-    function addGallery() {
-
     }
 
     /* Comportamineto de botones btn-group permitiendo apenas

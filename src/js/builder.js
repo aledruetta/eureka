@@ -1,5 +1,5 @@
 var HTMLOption = '<option value="%value%">%text%</option>\n';
-var HTMLAnuncioThumbnail = '<div class="col-md-6"><div class="thumbnail anuncio"></div></div>\n';
+var HTMLAnuncioThumbnail = '<div class="col-md-6"><div id="%referencia%" class="thumbnail anuncio"></div></div>\n';
 var HTMLAnuncioImg = '<div class="anuncio-imagens"><img class="img-responsive" src="build/images/gallery/%referencia%-01-1x.jpg" alt="%titulo%" ' +
     'srcset="build/images/gallery/%referencia%-01-1x.jpg 1x, build/images/gallery/%referencia%-01-2x.jpg 2x"></div>';
 var HTMLAnuncioChevron = '<div class="gallery-chevron gallery-chevron--%posicion%">\n' +
@@ -126,7 +126,7 @@ var anuncios = [{
         'descripcion': '2 dorm, cocina comedor, baño, galería/cochera para 2 autos, piscina',
     },
     {
-        'referencia': '6069',
+        'referencia': '6070',
         'precio': '$ 1.150.000',
         'titulo': 'Vende Casa Quinta en Los Zapallos Apta para Creditos y PROCREAR!!!',
         'tipoTrans': 'Venta',
@@ -140,7 +140,7 @@ var anuncios = [{
         'descripcion': '2 dorm, cocina comedor, baño, galería/cochera para 2 autos, piscina',
     },
     {
-        'referencia': '6069',
+        'referencia': '6071',
         'precio': '$ 1.150.000',
         'titulo': 'Vende Casa Quinta en Los Zapallos Apta para Creditos y PROCREAR!!!',
         'tipoTrans': 'Venta',
@@ -154,7 +154,7 @@ var anuncios = [{
         'descripcion': '2 dorm, cocina comedor, baño, galería/cochera para 2 autos, piscina',
     },
     {
-        'referencia': '6069',
+        'referencia': '6072',
         'precio': '$ 1.150.000',
         'titulo': 'Vende Casa Quinta en Los Zapallos Apta para Creditos y PROCREAR!!!',
         'tipoTrans': 'Venta',
@@ -168,7 +168,7 @@ var anuncios = [{
         'descripcion': '2 dorm, cocina comedor, baño, galería/cochera para 2 autos, piscina',
     },
     {
-        'referencia': '6069',
+        'referencia': '6073',
         'precio': '$ 1.150.000',
         'titulo': 'Vende Casa Quinta en Los Zapallos Apta para Creditos y PROCREAR!!!',
         'tipoTrans': 'Venta',
@@ -220,7 +220,7 @@ anuncios.append = function() {
 
     this.forEach(function(anuncio) {
 
-        $resultados.append(HTMLAnuncioThumbnail);
+        $resultados.append(HTMLAnuncioThumbnail.replace('%referencia%', anuncio.referencia));
 
         $('.anuncio').last()
             .append(HTMLAnuncioImg.replace(/%referencia%/g, anuncio.referencia))
