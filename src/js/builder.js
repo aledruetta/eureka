@@ -1,7 +1,7 @@
 var HTMLOption = '<option value="%value%">%text%</option>\n';
 var HTMLAnuncioThumbnail = '<div class="col-md-6"><div id="%referencia%" class="thumbnail anuncio"></div></div>\n';
-var HTMLAnuncioImg = '<div class="anuncio-imagens"><img class="img-responsive" src="build/images/gallery/%referencia%-1-1x.jpg" alt="%titulo%" ' +
-    'srcset="build/images/gallery/%referencia%-1-1x.jpg 1x, build/images/gallery/%referencia%-1-2x.jpg 2x"></div>';
+var HTMLAnuncioImg = '<div class="anuncio-imagens"><img class="img-responsive" src="build/images/gallery/%referencia%-%mostrando%-1x.jpg" alt="%titulo%" ' +
+    'srcset="build/images/gallery/%referencia%-%mostrando%-1x.jpg 1x, build/images/gallery/%referencia%-%mostrando%-2x.jpg 2x"></div>';
 var HTMLAnuncioChevron = '<div class="gallery-chevron gallery-chevron--%posicion%">\n' +
     '<span class="glyphicon glyphicon-chevron-%posicion%"></span>\n' +
     '</div>\n';
@@ -129,7 +129,7 @@ var anuncios = [{
     },
     {
         'referencia': '6070',
-        'fotos': 7,
+        'fotos': 6,
         'mostrando': 1,
         'precio': '$ 1.150.000',
         'titulo': 'Vende Casa Quinta en Los Zapallos Apta para Creditos y PROCREAR!!!',
@@ -146,7 +146,7 @@ var anuncios = [{
     {
         'referencia': '6071',
         'fotos': 7,
-        'mostrando': 1,
+        'mostrando': 3,
         'precio': '$ 1.150.000',
         'titulo': 'Vende Casa Quinta en Los Zapallos Apta para Creditos y PROCREAR!!!',
         'tipoTrans': 'Venta',
@@ -161,24 +161,8 @@ var anuncios = [{
     },
     {
         'referencia': '6072',
-        'fotos': 7,
-        'mostrando': 1,
-        'precio': '$ 1.150.000',
-        'titulo': 'Vende Casa Quinta en Los Zapallos Apta para Creditos y PROCREAR!!!',
-        'tipoTrans': 'Venta',
-        'tipoProp': 'Casa',
-        'ciudad': 'Rincón',
-        'direccion': 'Calle Los Amarillos a metros del río',
-        'habitaciones': 2,
-        'cochera': 2,
-        'pileta': 'sí',
-        'terreno': '15 por 22,5',
-        'descripcion': '2 dorm, cocina comedor, baño, galería/cochera para 2 autos, piscina',
-    },
-    {
-        'referencia': '6073',
-        'fotos': 7,
-        'mostrando': 1,
+        'fotos': 6,
+        'mostrando': 3,
         'precio': '$ 1.150.000',
         'titulo': 'Vende Casa Quinta en Los Zapallos Apta para Creditos y PROCREAR!!!',
         'tipoTrans': 'Venta',
@@ -235,6 +219,7 @@ anuncios.append = function() {
         $('.anuncio').last()
             .append(HTMLAnuncioImg
                 .replace(/%referencia%/g, anuncio.referencia)
+                .replace(/%mostrando%/g, anuncio.mostrando)
                 .replace('%titulo%', anuncio.titulo))
             .append(HTMLAnuncioPrecio.replace('%precio%', anuncio.precio))
             .append(HTMLAnuncioBreadcrumb
