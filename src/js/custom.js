@@ -93,6 +93,7 @@ $(document).ready(function() {
             }
         });
 
+        $('.gallery-chevron').show();
         var isDifferent = false;
 
         if ($chevron.hasClass('gallery-chevron--right') &&
@@ -100,11 +101,19 @@ $(document).ready(function() {
 
             anuncio.mostrando++;
             isDifferent = true;
+
+            if (anuncio.mostrando + 1 === anuncio.fotos) {
+                $chevron.hide();
+            }
         } else if ($chevron.hasClass('gallery-chevron--left') &&
             (anuncio.mostrando - 1) > 0) {
 
             anuncio.mostrando--;
             isDifferent = true;
+
+            if (anuncio.mostrando - 1 === 0) {
+                $chevron.hide();
+            }
         }
 
         if (isDifferent) {
