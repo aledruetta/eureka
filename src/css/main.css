@@ -306,6 +306,7 @@ and (max-width: 991px),
   color: white;
   border-radius: 0 0 0 4px;
   padding: 1em;
+  z-index: 20;
 }
 
 .gallery-remove:hover {
@@ -321,6 +322,7 @@ and (max-width: 991px),
   color: white;
   padding: 1em;
   text-align: center;
+  z-index: 20;
 }
 
 .gallery-chevron:hover {

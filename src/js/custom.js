@@ -54,8 +54,8 @@ $(document).ready(function() {
     $masImagens.click(function() {
 
         var $bt = $(this);
-        var $layer = $('.layer-opaque');
         var id = $bt.parent('div').parent('div').attr('id');
+        var $layer = $('.layer-opaque');
 
         var anuncio = anuncios.find(function(anuncio) {
             if (anuncio.referencia === id) {
@@ -63,18 +63,17 @@ $(document).ready(function() {
             }
         });
 
-        $layer.show();
-
-        $layer.append(HTMLGalleryImg
+        $('.gallery-img').remove();
+        $('.gallery-img-container').append(HTMLGalleryImg
                 .replace(/%referencia%/g, anuncio.referencia)
                 .replace(/%mostrando%/g, anuncio.mostrando)
                 .replace('%titulo%', anuncio.titulo));
 
-        $('.gallery-img-container')
-            .append(HTMLGalleryRemove)
-            .append(HTMLGalleryChevron.replace(/%posicion%/g, 'left'))
-            .append(HTMLGalleryChevron.replace(/%posicion%/g, 'right'));
+        $layer.show();
 
+        $('.gallery-remove').click(function() {
+            $layer.hide();
+        });
     });
 
     $galleryChevron.click(function() {
