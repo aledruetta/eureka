@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
     // links de navegación página principal
-    var $btNavA = $('.bt-nav-a');
+    var $btNavA = $('.bt-nav-link');
     // botones selección tipo de transacción
     var $bgTipoTrans = $('.bt-grp-tipoTrans');
     // índice array botón seleccionado

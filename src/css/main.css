@@ -135,11 +135,11 @@ and (orientation: landscape) {
   background-color: rgba(135, 123, 106, 0.48);
 }
 
-.bt-wrapper.above {
+.bt-wrapper--above {
   margin-bottom: 1em;
 }
 
-.bt-wrapper.below {
+.bt-wrapper--below {
   margin-top: 1em;
 }
 
@@ -190,11 +190,11 @@ and (orientation: landscape) {
   color: #322f2f;
 }
 
-.bt-nav.active {
+.bt-nav--active {
   border-bottom-width: thick;
 }
 
-.bt-nav.active a {
+.bt-nav--active a {
   font-weight: bold;
   font-style: oblique;
 }
