@@ -53,25 +53,28 @@ $(document).ready(function() {
 
     $masImagens.click(function() {
 
-        var $bt = $(this);
-        var id = $bt.parent('div').parent('div').attr('id');
+        var $open = $(this);
         var $layer = $('.layer-opaque');
+        var $img = $('.gallery-img');
+        var $gallery = $('.gallery-img-container');
+        var $close = $('.gallery-remove');
 
+        var id = $open.parent('div').parent('div').attr('id');
         var anuncio = anuncios.find(function(anuncio) {
             if (anuncio.referencia === id) {
                 return anuncio;
             }
         });
 
-        $('.gallery-img').remove();
-        $('.gallery-img-container').append(HTMLGalleryImg
+        $img.remove();
+        $gallery.append(HTMLGalleryImg
                 .replace(/%referencia%/g, anuncio.referencia)
                 .replace(/%mostrando%/g, anuncio.mostrando)
                 .replace('%titulo%', anuncio.titulo));
 
         $layer.show();
 
-        $('.gallery-remove').click(function() {
+        $close.click(function() {
             $layer.hide();
         });
     });
