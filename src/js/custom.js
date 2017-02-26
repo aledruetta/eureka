@@ -3,7 +3,7 @@ $(document).ready(function() {
     // links de navegación página principal
     var $btNavA = $('.bt-nav-a');
     // botones selección tipo de transacción
-    var $bgTipoTrans = $('#bt-grp-tipoTrans');
+    var $bgTipoTrans = $('.bt-grp-tipoTrans');
     // índice array botón seleccionado
     var btIndex;
 
@@ -71,7 +71,7 @@ $(document).ready(function() {
 
             anuncio.mostrando--;
         }
-        
+
         var subst = ref + '-' + anuncio.mostrando;
 
         var src = $fotoActual.attr('src').replace(regex, subst);

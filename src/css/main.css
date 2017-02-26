@@ -226,13 +226,13 @@ and (max-width: 991px),
   position: relative;
 }
 
-#search-form,
+.search-form,
 .resultados {
   margin-top: 1.5em;
   margin-bottom: 1.5em;
 }
 
-#bt-grp-tipoTrans {
+.bt-grp-tipoTrans {
   left: 50%;
   transform: translateX(-50%);
   margin-bottom: 1em;
