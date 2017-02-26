@@ -279,7 +279,7 @@ and (max-width: 991px),
   border-radius: 0 4px 4px 0;
 }
 
-.anuncio .breadcrumb {
+.anuncio-breadcrumb {
   margin-bottom: 0;
   border-radius: 0;
   font-size: smaller;

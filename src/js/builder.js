@@ -10,7 +10,7 @@ var HTMLAnuncioPrecio = '<div class="tipo-precio">\n' +
     '<span>%precio%</span>\n' +
     '</div>\n' +
     '</div>\n';
-var HTMLAnuncioBreadcrumb = '<ol class="breadcrumb">\n' +
+var HTMLAnuncioBreadcrumb = '<ol class="breadcrumb anuncio-breadcrumb">\n' +
     '<li>%tipoTrans%</li>\n' +
     '<li>%tipoProp%</li>\n' +
     '<li>%ciudad%</li>\n' +
@@ -221,7 +221,6 @@ anuncios.append = function() {
                 .replace(/%referencia%/g, anuncio.referencia)
                 .replace(/%mostrando%/g, anuncio.mostrando)
                 .replace('%titulo%', anuncio.titulo))
-            .append(HTMLAnuncioPrecio.replace('%precio%', anuncio.precio))
             .append(HTMLAnuncioBreadcrumb
                 .replace('%tipoTrans%', anuncio.tipoTrans)
                 .replace('%tipoProp%', anuncio.tipoProp)
@@ -229,8 +228,9 @@ anuncios.append = function() {
             .append(HTMLAnuncioCaption.replace(/%titulo%/g, anuncio.titulo));
 
         $('.anuncio-img-container').last()
-            .append(HTMLAnuncioChevron.replace(/%posicion%/g, 'left'))
-            .append(HTMLAnuncioChevron.replace(/%posicion%/g, 'right'));
+            .append(HTMLAnuncioPrecio.replace('%precio%', anuncio.precio));
+        //     .append(HTMLAnuncioChevron.replace(/%posicion%/g, 'left'))
+        //     .append(HTMLAnuncioChevron.replace(/%posicion%/g, 'right'));
 
         $('.anuncio-detalles > h3').last()
             .after(HTMLAnuncioCaptionDetalles
