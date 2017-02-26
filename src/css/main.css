@@ -299,14 +299,27 @@ and (max-width: 991px),
   transform: translateX(-50%) translateY(-50%);
 }
 
+.gallery-remove {
+  position: absolute;
+  left: 100%;
+  transform: translateX(-100%);
+  color: white;
+  border-radius: 0 0 0 4px;
+  padding: 1em;
+}
+
+.gallery-remove:hover {
+  background-color: rgb(255, 255, 255);
+  background-color: rgba(255, 255, 255, 0.64);
+  color: black;
+}
+
 .gallery-chevron {
   position: absolute;
   background-color: rgb(17, 17, 17);
   background-color: rgba(17, 17, 17, 0.64);
   color: white;
-  padding: 0.7em;
-  width: 3em;
-  height: 3em;
+  padding: 1em;
   text-align: center;
 }
 

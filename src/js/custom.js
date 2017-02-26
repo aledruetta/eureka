@@ -70,6 +70,11 @@ $(document).ready(function() {
                 .replace(/%mostrando%/g, anuncio.mostrando)
                 .replace('%titulo%', anuncio.titulo));
 
+        $('.gallery-img-container')
+            .append(HTMLGalleryRemove)
+            .append(HTMLGalleryChevron.replace(/%posicion%/g, 'left'))
+            .append(HTMLGalleryChevron.replace(/%posicion%/g, 'right'));
+
     });
 
     $galleryChevron.click(function() {

@@ -4,8 +4,11 @@ var HTMLAnuncioImg = '<div class="anuncio-img-container"><img class="img-respons
     'srcset="build/images/gallery/%referencia%-%mostrando%-1x.jpg 1x, build/images/gallery/%referencia%-%mostrando%-2x.jpg 2x"></div>';
 var HTMLGalleryImg = '<div class="gallery-img-container"><img class="img-responsive gallery-img" src="build/images/gallery/%referencia%-%mostrando%-1x.jpg" alt="%titulo%" ' +
     'srcset="build/images/gallery/%referencia%-%mostrando%-1x.jpg 428w, build/images/gallery/%referencia%-%mostrando%-2x.jpg 856w"></div>';
-var HTMLAnuncioChevron = '<div class="gallery-chevron gallery-chevron--%posicion%">\n' +
+var HTMLGalleryChevron = '<div class="gallery-chevron gallery-chevron--%posicion%">\n' +
     '<span class="glyphicon glyphicon-chevron-%posicion%"></span>\n' +
+    '</div>\n';
+var HTMLGalleryRemove = '<div class="gallery-remove">\n' +
+    '<span class="glyphicon glyphicon-remove"></span>\n' +
     '</div>\n';
 var HTMLAnuncioGalleryClick = '<div class="anuncio-mas-imagens">\n' +
     '<span class="glyphicon glyphicon-th-large anuncio-gallery-click"></span>\n' +
@@ -235,8 +238,6 @@ anuncios.append = function() {
         $('.anuncio-img-container').last()
             .append(HTMLAnuncioGalleryClick)
             .append(HTMLAnuncioPrecio.replace('%precio%', anuncio.precio));
-        //     .append(HTMLAnuncioChevron.replace(/%posicion%/g, 'left'))
-        //     .append(HTMLAnuncioChevron.replace(/%posicion%/g, 'right'));
 
         $('.anuncio-detalles > h3').last()
             .after(HTMLAnuncioCaptionDetalles
