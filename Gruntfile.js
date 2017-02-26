@@ -63,6 +63,24 @@ module.exports = function(grunt) {
             }
         },
 
+        image_resize: {
+            options: {
+                upscale: true,
+                crop: true,
+                gravity: 'Center',
+                width: 856,
+                height: 535,
+            },
+            responsive: {
+                files: [{
+                    expand: true,
+                    cwd: 'src/images/gallery',
+                    src: ['*.{jpg,jpeg,png}'],
+                    dest: 'tmp',
+                }]
+            }
+        },
+
         responsive_images: {
             options: {
                 sizes: [{
@@ -77,10 +95,10 @@ module.exports = function(grunt) {
                     }
                 ]
             },
-            devel: {
+            responsive: {
                 files: [{
                     expand: true,
-                    cwd: 'src/images/gallery',
+                    cwd: 'tmp',
                     src: ['*.{jpg,jpeg,png}'],
                     dest: 'build/images/gallery',
                 }]
@@ -91,7 +109,7 @@ module.exports = function(grunt) {
             options: {
                 progressive: true,
             },
-            devel: {
+            responsive: {
                 files: [{
                         expand: true,
                         cwd: 'build/images/gallery',
@@ -113,6 +131,7 @@ module.exports = function(grunt) {
         clean: {
             devel: ['build/js/*', 'build/css/*'],
             deploy: ['tmp/*'],
+            responsive: ['tmp/*'],
         },
 
         processhtml: {
@@ -135,8 +154,10 @@ module.exports = function(grunt) {
 
     grunt.registerTask('default', []);
     grunt.registerTask('images', [
-        'responsive_images:devel',
-        'imagemin:devel',
+        'image_resize',
+        'responsive_images',
+        'imagemin',
+        'clean:responsive',
     ]);
     grunt.registerTask('devel', [
         'processhtml:devel',
