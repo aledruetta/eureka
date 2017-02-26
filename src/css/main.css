@@ -111,6 +111,7 @@ and (orientation: landscape) {
 }
 
 .transparency {
+  background-color: rgb(135, 123, 106);
   background-color: rgba(135, 123, 106, 0.48);
   padding: 1px 1em;
 }
@@ -130,6 +131,7 @@ and (orientation: landscape) {
 .bt-wrapper {
   display: flex;
   width: 100%;
+  background-color: rgb(135, 123, 106);
   background-color: rgba(135, 123, 106, 0.48);
 }
 
@@ -253,6 +255,7 @@ and (max-width: 991px),
 
 .gallery-chevron {
   position: absolute;
+  background-color: rgb(17, 17, 17);
   background-color: rgba(17, 17, 17, 0.64);
   color: white;
   padding: 0.7em;
@@ -262,6 +265,7 @@ and (max-width: 991px),
 }
 
 .gallery-chevron:hover {
+  background-color: rgb(255, 255, 255);
   background-color: rgba(255, 255, 255, 0.64);
   color: black;
 }
@@ -291,6 +295,7 @@ and (max-width: 991px),
 
 .tipo-precio-inner {
   position: absolute;
+  background-color: rgb(17, 17, 17);
   background-color: rgba(17, 17, 17, 0.64);
   color: #fff;
   padding: 0.5em;
