@@ -1,6 +1,6 @@
 var HTMLOption = '<option value="%value%">%text%</option>\n';
 var HTMLAnuncioThumbnail = '<div class="col-md-6"><div id="%referencia%" class="thumbnail anuncio"></div></div>\n';
-var HTMLAnuncioImg = '<div class="anuncio-imagens"><img class="img-responsive" src="build/images/gallery/%referencia%-%mostrando%-1x.jpg" alt="%titulo%" ' +
+var HTMLAnuncioImg = '<div class="anuncio-img-container"><img class="img-responsive anuncio-img" src="build/images/gallery/%referencia%-%mostrando%-1x.jpg" alt="%titulo%" ' +
     'srcset="build/images/gallery/%referencia%-%mostrando%-1x.jpg 1x, build/images/gallery/%referencia%-%mostrando%-2x.jpg 2x"></div>';
 var HTMLAnuncioChevron = '<div class="gallery-chevron gallery-chevron--%posicion%">\n' +
     '<span class="glyphicon glyphicon-chevron-%posicion%"></span>\n' +
@@ -209,7 +209,7 @@ options.search.appendTipoProp = function() {
 ==================================================== */
 anuncios.append = function() {
 
-    var $resultados = $('.resultados > .row');
+    var $resultados = $('.resultados-row');
     var count = 1;
 
     this.forEach(function(anuncio) {
@@ -228,7 +228,7 @@ anuncios.append = function() {
                 .replace('%ciudad%', anuncio.ciudad))
             .append(HTMLAnuncioCaption.replace(/%titulo%/g, anuncio.titulo));
 
-        $('.anuncio-imagens').last()
+        $('.anuncio-img-container').last()
             .append(HTMLAnuncioChevron.replace(/%posicion%/g, 'left'))
             .append(HTMLAnuncioChevron.replace(/%posicion%/g, 'right'));
 

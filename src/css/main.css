@@ -1,7 +1,3 @@
-* {
-  /*border: solid 1px rgba(255, 0, 0, 0.41);*/
-}
-
 html,
 body {
   color: #322f2f;
@@ -103,7 +99,7 @@ and (orientation: landscape) {
   }
 }
 
-.cover > header {
+.cover-header {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -245,11 +241,11 @@ and (max-width: 991px),
   padding: 0;
 }
 
-.anuncio img {
+.anuncio-img {
   width: 100%;
 }
 
-.anuncio-imagens {
+.anuncio-img-container {
   position: relative;
 }
 
