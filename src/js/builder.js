@@ -2,6 +2,8 @@ var HTMLOption = '<option value="%value%">%text%</option>\n';
 var HTMLAnuncioThumbnail = '<div class="col-md-6"><div id="%referencia%" class="thumbnail anuncio"></div></div>\n';
 var HTMLAnuncioImg = '<div class="anuncio-img-container"><img class="img-responsive anuncio-img" src="build/images/gallery/%referencia%-%mostrando%-1x.jpg" alt="%titulo%" ' +
     'srcset="build/images/gallery/%referencia%-%mostrando%-1x.jpg 1x, build/images/gallery/%referencia%-%mostrando%-2x.jpg 2x"></div>';
+var HTMLGalleryImg = '<div class="gallery-img-container"><img class="img-responsive gallery-img" src="build/images/gallery/%referencia%-%mostrando%-1x.jpg" alt="%titulo%" ' +
+    'srcset="build/images/gallery/%referencia%-%mostrando%-1x.jpg 428w, build/images/gallery/%referencia%-%mostrando%-2x.jpg 856w"></div>';
 var HTMLAnuncioChevron = '<div class="gallery-chevron gallery-chevron--%posicion%">\n' +
     '<span class="glyphicon glyphicon-chevron-%posicion%"></span>\n' +
     '</div>\n';

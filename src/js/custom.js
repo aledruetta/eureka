@@ -15,6 +15,8 @@ $(document).ready(function() {
     var $btDetalles = $('.bt-detalles');
     // botones galeria imagens
     var $galleryChevron = $('.gallery-chevron');
+    // boton mas-imagens
+    var $masImagens = $('.anuncio-mas-imagens');
 
     /* EventListener botones navegación página principal */
     $btNavA.click(function() {
@@ -47,6 +49,27 @@ $(document).ready(function() {
 
         resetBtDetalles();
         toggleDetalles(text, $bt);
+    });
+
+    $masImagens.click(function() {
+
+        var $bt = $(this);
+        var $layer = $('.layer-opaque');
+        var id = $bt.parent('div').parent('div').attr('id');
+
+        var anuncio = anuncios.find(function(anuncio) {
+            if (anuncio.referencia === id) {
+                return anuncio;
+            }
+        });
+
+        $layer.show();
+
+        $layer.append(HTMLGalleryImg
+                .replace(/%referencia%/g, anuncio.referencia)
+                .replace(/%mostrando%/g, anuncio.mostrando)
+                .replace('%titulo%', anuncio.titulo));
+
     });
 
     $galleryChevron.click(function() {
