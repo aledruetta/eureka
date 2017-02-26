@@ -8,6 +8,7 @@ body::-webkit-scrollbar {
 }
 
 .layer-opaque {
+  display: none;
   position: fixed;
   z-index: 10;
   opacity: 5;
@@ -257,6 +258,31 @@ and (max-width: 991px),
 
 .anuncio-img-container {
   position: relative;
+}
+
+.anuncio-mas-imagens {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: calc(50% - 1.5em);
+  padding: 0.8em;
+  border-radius: 4px;
+  background-color: rgb(17, 17, 17);
+  background-color: rgba(17, 17, 17, 0.64);
+  color: white;
+  font-size: 1.4em;
+  text-align: center;
+}
+
+.anuncio-mas-imagens:hover {
+  background-color: rgb(255, 255, 255);
+  background-color: rgba(255, 255, 255, 0.64);
+  color: black;
+}
+
+.anuncio-gallery-click {
+  top: 3px;
+  left: 1px;
 }
 
 .gallery-chevron {

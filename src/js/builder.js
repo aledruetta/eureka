@@ -5,6 +5,9 @@ var HTMLAnuncioImg = '<div class="anuncio-img-container"><img class="img-respons
 var HTMLAnuncioChevron = '<div class="gallery-chevron gallery-chevron--%posicion%">\n' +
     '<span class="glyphicon glyphicon-chevron-%posicion%"></span>\n' +
     '</div>\n';
+var HTMLAnuncioGalleryClick = '<div class="anuncio-mas-imagens">\n' +
+    '<span class="glyphicon glyphicon-th-large anuncio-gallery-click"></span>\n' +
+    '</div>';
 var HTMLAnuncioPrecio = '<div class="tipo-precio">\n' +
     '<div class="tipo-precio-inner">\n' +
     '<span>%precio%</span>\n' +
@@ -228,6 +231,7 @@ anuncios.append = function() {
             .append(HTMLAnuncioCaption.replace(/%titulo%/g, anuncio.titulo));
 
         $('.anuncio-img-container').last()
+            .append(HTMLAnuncioGalleryClick)
             .append(HTMLAnuncioPrecio.replace('%precio%', anuncio.precio));
         //     .append(HTMLAnuncioChevron.replace(/%posicion%/g, 'left'))
         //     .append(HTMLAnuncioChevron.replace(/%posicion%/g, 'right'));
