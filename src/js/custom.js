@@ -93,27 +93,26 @@ $(document).ready(function() {
             }
         });
 
-        $('.gallery-chevron').show();
         var isDifferent = false;
 
-        if ($chevron.hasClass('gallery-chevron--right') &&
-            (anuncio.mostrando + 1) <= anuncio.fotos) {
-
-            anuncio.mostrando++;
-            isDifferent = true;
-
-            if (anuncio.mostrando + 1 === anuncio.fotos) {
-                $chevron.hide();
+        if ($chevron.hasClass('gallery-chevron--right')) {
+            if (anuncio.mostrando + 1 <= anuncio.fotos) {
+                anuncio.mostrando++;
+                isDifferent = true;
             }
-        } else if ($chevron.hasClass('gallery-chevron--left') &&
-            (anuncio.mostrando - 1) > 0) {
-
-            anuncio.mostrando--;
-            isDifferent = true;
-
-            if (anuncio.mostrando - 1 === 0) {
-                $chevron.hide();
+        } else if ($chevron.hasClass('gallery-chevron--left')) {
+            if (anuncio.mostrando - 1 > 0) {
+                anuncio.mostrando--;
+                isDifferent = true;
             }
+        }
+
+        if (anuncio.mostrando > 1 && anuncio.mostrando < anuncio.fotos) {
+            $('.gallery-chevron').show();
+        } else if (anuncio.mostrando === 1) {
+            $('.gallery-chevron--left').hide();
+        } else if (anuncio.mostrando === anuncio.fotos) {
+            $('.gallery-chevron--right').hide();
         }
 
         if (isDifferent) {
