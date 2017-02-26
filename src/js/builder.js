@@ -209,7 +209,7 @@ options.search.appendTipoProp = function() {
 ==================================================== */
 anuncios.append = function() {
 
-    var $resultados = $('#resultados > .row');
+    var $resultados = $('.resultados > .row');
     var count = 1;
 
     this.forEach(function(anuncio) {
