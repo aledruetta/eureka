@@ -93,29 +93,7 @@ $(document).ready(function() {
             }
         });
 
-        var isDifferent = false;
-
-        if ($chevron.hasClass('gallery-chevron--right')) {
-            if (anuncio.mostrando + 1 <= anuncio.fotos) {
-                anuncio.mostrando++;
-                isDifferent = true;
-            }
-        } else if ($chevron.hasClass('gallery-chevron--left')) {
-            if (anuncio.mostrando - 1 > 0) {
-                anuncio.mostrando--;
-                isDifferent = true;
-            }
-        }
-
-        if (anuncio.mostrando > 1 && anuncio.mostrando < anuncio.fotos) {
-            $('.gallery-chevron').show();
-        } else if (anuncio.mostrando === 1) {
-            $('.gallery-chevron--left').hide();
-        } else if (anuncio.mostrando === anuncio.fotos) {
-            $('.gallery-chevron--right').hide();
-        }
-
-        if (isDifferent) {
+        if (imgWillChange()) {
 
             var regex = new RegExp(id + '-[0-9]*', 'g');
             var subst = id + '-' + anuncio.mostrando;
@@ -131,8 +109,36 @@ $(document).ready(function() {
                     $gallery.append($fotoNext);
                     $fotoNext.fadeIn();
                     $fotoActual.remove();
+                    toggleChevron(anuncio);
                 });
             });
+        }
+
+        function imgWillChange() {
+
+            if ($chevron.hasClass('gallery-chevron--right')) {
+                if (anuncio.mostrando + 1 <= anuncio.fotos) {
+                    anuncio.mostrando++;
+                    return true;
+                }
+            } else if ($chevron.hasClass('gallery-chevron--left')) {
+                if (anuncio.mostrando - 1 > 0) {
+                    anuncio.mostrando--;
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        function toggleChevron() {
+
+            if (anuncio.mostrando > 1 && anuncio.mostrando < anuncio.fotos) {
+                $('.gallery-chevron').show();
+            } else if (anuncio.mostrando === 1) {
+                $('.gallery-chevron--left').hide();
+            } else if (anuncio.mostrando === anuncio.fotos) {
+                $('.gallery-chevron--right').hide();
+            }
         }
     });
 
