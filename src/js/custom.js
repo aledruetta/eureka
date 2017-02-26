@@ -6,6 +6,7 @@ $(document).ready(function() {
     var $bgTipoTrans = $('.bt-grp-tipoTrans');
     // índice array botón seleccionado
     var btIndex;
+    var $gallery = $('.gallery-img-container');
 
     options.search.appendCities();
     options.search.appendTipoProp();
@@ -56,7 +57,6 @@ $(document).ready(function() {
         var $open = $(this);
         var $layer = $('.layer-opaque');
         var $img = $('.gallery-img');
-        var $gallery = $('.gallery-img-container');
         var $close = $('.gallery-remove');
 
         var id = $open.parent('div').parent('div').attr('id');
@@ -81,34 +81,51 @@ $(document).ready(function() {
 
     $galleryChevron.click(function() {
 
-        var $bt = $(this);
-        var ref = $bt.parent('div').parent('div').attr('id');
-        var $fotoActual = $($bt.siblings('img')[0]);
-        var regex = new RegExp(ref + '-[0-9]*', 'g');
+        var $chevron = $(this);
+        var $fotoActual = $($chevron.siblings('img')[0]);
+
+        var tmp = $fotoActual.attr('src').replace('build/images/gallery/', '');
+        var id = tmp.replace(new RegExp('-.*'), '');
 
         var anuncio = anuncios.find(function(anuncio) {
-            if (anuncio.referencia === ref) {
+            if (anuncio.referencia === id) {
                 return anuncio;
             }
         });
 
-        if ($bt.hasClass('gallery-chevron--right') &&
+        var isDifferent = false;
+
+        if ($chevron.hasClass('gallery-chevron--right') &&
             (anuncio.mostrando + 1) <= anuncio.fotos) {
 
             anuncio.mostrando++;
-        } else if ($bt.hasClass('gallery-chevron--left') &&
+            isDifferent = true;
+        } else if ($chevron.hasClass('gallery-chevron--left') &&
             (anuncio.mostrando - 1) > 0) {
 
             anuncio.mostrando--;
+            isDifferent = true;
         }
 
-        var subst = ref + '-' + anuncio.mostrando;
+        if (isDifferent) {
 
-        var src = $fotoActual.attr('src').replace(regex, subst);
-        var srcset = $fotoActual.attr('srcset').replace(regex, subst);
+            var regex = new RegExp(id + '-[0-9]*', 'g');
+            var subst = id + '-' + anuncio.mostrando;
 
-        $fotoActual.attr('src', src);
-        $fotoActual.attr('srcset', srcset);
+            var $fotoNext = $fotoActual.clone();
+            var src = $fotoNext.attr('src').replace(regex, subst);
+            var srcset = $fotoNext.attr('srcset').replace(regex, subst);
+            $fotoNext.attr('src', src);
+            $fotoNext.attr('srcset', srcset);
+
+            $fotoNext.on('load', function() {
+                $fotoActual.fadeOut(function() {
+                    $gallery.append($fotoNext);
+                    $fotoNext.fadeIn();
+                    $fotoActual.remove();
+                });
+            });
+        }
     });
 
     function toggleDetalles(text, $bt) {
