@@ -1,15 +1,15 @@
 $(document).ready(function() {
 
+    options.search.appendCities();
+    options.search.appendTipoProp();
+    anuncios.append();
+
     // links de navegación página principal
     var $btNavA = $('.bt-nav-link');
     // botones selección tipo de transacción
     var $bgTipoTrans = $('.bt-grp-tipoTrans');
     // índice array botón seleccionado
     var btIndex;
-
-    options.search.appendCities();
-    options.search.appendTipoProp();
-    anuncios.append();
 
     var anuncio;
     var $btDetalles = $('.bt-detalles');
