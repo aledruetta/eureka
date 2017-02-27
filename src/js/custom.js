@@ -6,19 +6,18 @@ $(document).ready(function() {
     var $bgTipoTrans = $('.bt-grp-tipoTrans');
     // índice array botón seleccionado
     var btIndex;
-    var $gallery = $('.gallery-img-container');
-    var anuncio;
 
     options.search.appendCities();
     options.search.appendTipoProp();
     anuncios.append();
 
-    // botones "más detalles"
+    var anuncio;
     var $btDetalles = $('.bt-detalles');
-    // botones galeria imagens
-    var $galleryChevron = $('.gallery-chevron');
-    // boton mas-imagens
     var $masImagens = $('.anuncio-mas-imagens');
+    var $layer = $('.layer-opaque');
+    var $gallery = $('.gallery-img-container');
+    var $close = $('.gallery-remove');
+    var $galleryChevron = $('.gallery-chevron');
 
     /* EventListener botones navegación página principal */
     $btNavA.click(function() {
@@ -53,12 +52,14 @@ $(document).ready(function() {
         toggleDetalles(text, $bt);
     });
 
+    $close.click(function() {
+        $layer.hide();
+    });
+
     $masImagens.click(function() {
 
         var $open = $(this);
-        var $layer = $('.layer-opaque');
         var $img = $('.gallery-img');
-        var $close = $('.gallery-remove');
 
         var id = $open.parent('div').parent('div').attr('id');
         anuncio = anuncios.find(function(anuncio) {
@@ -73,39 +74,29 @@ $(document).ready(function() {
                 .replace(/%mostrando%/g, anuncio.mostrando)
                 .replace('%titulo%', anuncio.titulo));
 
-        $layer.show();
-
-        $close.click(function() {
-            $layer.hide();
-        });
-
         toggleChevron();
+
+        $layer.show();
     });
 
     $galleryChevron.click(function() {
 
         var $chevron = $(this);
-        var $fotoActual = $($chevron.siblings('img')[0]);
+        var $img = $('.gallery-img');
 
-        var tmp = $fotoActual.attr('src').replace('build/images/gallery/', '');
+        var tmp = $img.attr('src').replace('build/images/gallery/', '');
         var id = tmp.replace(new RegExp('-.*'), '');
 
         if (imgWillChange()) {
 
-            var regex = new RegExp(id + '-[0-9]*', 'g');
-            var subst = id + '-' + anuncio.mostrando;
+            var $imgNext = $img.clone();
+            srcSetChange($imgNext, id, anuncio.mostrando);
 
-            var $fotoNext = $fotoActual.clone();
-            var src = $fotoNext.attr('src').replace(regex, subst);
-            var srcset = $fotoNext.attr('srcset').replace(regex, subst);
-            $fotoNext.attr('src', src);
-            $fotoNext.attr('srcset', srcset);
-
-            $fotoNext.on('load', function() {
-                $fotoActual.fadeOut(function() {
-                    $gallery.append($fotoNext);
-                    $fotoNext.fadeIn();
-                    $fotoActual.remove();
+            $imgNext.on('load', function() {
+                $img.fadeOut(function() {
+                    $gallery.append($imgNext);
+                    $imgNext.fadeIn();
+                    $img.remove();
                     toggleChevron(anuncio);
                 });
             });
@@ -128,10 +119,21 @@ $(document).ready(function() {
         }
     });
 
+    function srcSetChange($img, id, mostrando) {
+
+        var regex = new RegExp(id + '-[0-9]*', 'g');
+        var subst = id + '-' + mostrando;
+
+        var src = $img.attr('src').replace(regex, subst);
+        var srcset = $img.attr('srcset').replace(regex, subst);
+        $img.attr('src', src);
+        $img.attr('srcset', srcset);
+    }
+
     function toggleChevron() {
 
         if (anuncio.mostrando > 1 && anuncio.mostrando < anuncio.fotos) {
-            $('.gallery-chevron').show();
+            $galleryChevron.show();
         } else if (anuncio.mostrando === 1) {
             $('.gallery-chevron--left').hide();
         } else if (anuncio.mostrando === anuncio.fotos) {
