@@ -58,9 +58,9 @@ $(document).ready(function() {
         var $img = $('.gallery-img');
 
         var id = $open.parent('div').parent('div').attr('id');
-        anuncio = anuncios.find(function(anuncio) {
-            if (anuncio.referencia === id) {
-                return anuncio;
+        anuncio = anuncios.find(function(item) {
+            if (item.referencia === id) {
+                return item;
             }
         });
 
@@ -70,9 +70,8 @@ $(document).ready(function() {
                 .replace(/%mostrando%/g, anuncio.mostrando)
                 .replace('%titulo%', anuncio.titulo));
 
-        toggleChevron();
-
         $layer.show();
+        toggleChevron(anuncio);
     });
 
     $galleryChevron.click(function() {
@@ -83,7 +82,7 @@ $(document).ready(function() {
         var tmp = $img.attr('src').replace('build/images/gallery/', '');
         var id = tmp.replace(new RegExp('-.*'), '');
 
-        if (imgWillChange()) {
+        if (imgWillChange(anuncio)) {
 
             var $imgNext = $img.clone();
             srcSetChange($imgNext, id, anuncio.mostrando);
@@ -92,13 +91,13 @@ $(document).ready(function() {
                 $img.fadeOut(function() {
                     $gallery.append($imgNext);
                     $imgNext.fadeIn();
-                    $img.remove();
                     toggleChevron(anuncio);
+                    $img.remove();
                 });
             });
         }
 
-        function imgWillChange() {
+        function imgWillChange(anuncio) {
 
             if ($chevron.hasClass('gallery-chevron--right')) {
                 if (anuncio.mostrando + 1 <= anuncio.fotos) {
@@ -130,11 +129,10 @@ $(document).ready(function() {
         $img.attr('srcset', srcset);
     }
 
-    function toggleChevron() {
+    function toggleChevron(anuncio) {
 
-        if (anuncio.mostrando > 1 && anuncio.mostrando < anuncio.fotos) {
-            $galleryChevron.show();
-        } else if (anuncio.mostrando === 1) {
+        $galleryChevron.show();
+        if (anuncio.mostrando === 1) {
             $('.gallery-chevron--left').hide();
         } else if (anuncio.mostrando === anuncio.fotos) {
             $('.gallery-chevron--right').hide();
