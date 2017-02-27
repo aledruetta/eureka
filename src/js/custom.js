@@ -16,7 +16,7 @@ $(document).ready(function() {
     var $masImagens = $('.anuncio-mas-imagens');
     var $layer = $('.layer-opaque');
     var $gallery = $('.gallery-img-container');
-    var $close = $('.gallery-remove');
+    var $closeGallery = $('.gallery-remove');
     var $galleryChevron = $('.gallery-chevron');
 
     /* EventListener botones navegación página principal */
@@ -50,10 +50,6 @@ $(document).ready(function() {
 
         resetBtDetalles();
         toggleDetalles(text, $bt);
-    });
-
-    $close.click(function() {
-        $layer.hide();
     });
 
     $masImagens.click(function() {
@@ -117,6 +113,10 @@ $(document).ready(function() {
             }
             return false;
         }
+    });
+
+    $closeGallery.click(function() {
+        $layer.hide();
     });
 
     function srcSetChange($img, id, mostrando) {
