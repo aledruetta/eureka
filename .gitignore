@@ -1,8 +1,6 @@
-src/images/cover/
-src/images/gallery/
 .tern-project
 node_modules/
 npm-debug.log
 tmp/
-build/css/
-build/js/
+build/
+index.html
