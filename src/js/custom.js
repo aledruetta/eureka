@@ -78,6 +78,8 @@ $(document).ready(function() {
         $close.click(function() {
             $layer.hide();
         });
+
+        toggleChevron();
     });
 
     $galleryChevron.click(function() {
@@ -124,18 +126,18 @@ $(document).ready(function() {
             }
             return false;
         }
-
-        function toggleChevron() {
-
-            if (anuncio.mostrando > 1 && anuncio.mostrando < anuncio.fotos) {
-                $('.gallery-chevron').show();
-            } else if (anuncio.mostrando === 1) {
-                $('.gallery-chevron--left').hide();
-            } else if (anuncio.mostrando === anuncio.fotos) {
-                $('.gallery-chevron--right').hide();
-            }
-        }
     });
+
+    function toggleChevron() {
+
+        if (anuncio.mostrando > 1 && anuncio.mostrando < anuncio.fotos) {
+            $('.gallery-chevron').show();
+        } else if (anuncio.mostrando === 1) {
+            $('.gallery-chevron--left').hide();
+        } else if (anuncio.mostrando === anuncio.fotos) {
+            $('.gallery-chevron--right').hide();
+        }
+    }
 
     function toggleDetalles(text, $bt) {
 
