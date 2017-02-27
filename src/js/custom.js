@@ -7,6 +7,7 @@ $(document).ready(function() {
     // índice array botón seleccionado
     var btIndex;
     var $gallery = $('.gallery-img-container');
+    var anuncio;
 
     options.search.appendCities();
     options.search.appendTipoProp();
@@ -60,7 +61,7 @@ $(document).ready(function() {
         var $close = $('.gallery-remove');
 
         var id = $open.parent('div').parent('div').attr('id');
-        var anuncio = anuncios.find(function(anuncio) {
+        anuncio = anuncios.find(function(anuncio) {
             if (anuncio.referencia === id) {
                 return anuncio;
             }
@@ -86,12 +87,6 @@ $(document).ready(function() {
 
         var tmp = $fotoActual.attr('src').replace('build/images/gallery/', '');
         var id = tmp.replace(new RegExp('-.*'), '');
-
-        var anuncio = anuncios.find(function(anuncio) {
-            if (anuncio.referencia === id) {
-                return anuncio;
-            }
-        });
 
         if (imgWillChange()) {
 
