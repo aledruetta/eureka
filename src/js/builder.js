@@ -12,7 +12,7 @@ var HTMLGalleryRemove = '<div class="gallery-remove">\n' +
     '<span class="glyphicon glyphicon-remove"></span>\n' +
     '</div>\n';
 var HTMLAnuncioGalleryClick = '<div class="anuncio-mas-imagens">\n' +
-    '<span class="glyphicon glyphicon-th-large anuncio-gallery-click"></span>\n' +
+    '<span class="glyphicon glyphicon-search anuncio-gallery-click"></span>\n' +
     '</div>';
 var HTMLAnuncioPrecio = '<div class="tipo-precio">\n' +
     '<div class="tipo-precio-inner">\n' +
