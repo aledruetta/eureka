@@ -14,8 +14,6 @@
       integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
       crossorigin="anonymous">
 
-    <!-- <link href="https://fonts.googleapis.com/css?family=Lora:400,400i" rel="stylesheet"> -->
-
     <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
     rel="stylesheet"
     integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
@@ -28,13 +26,12 @@
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <link rel="stylesheet" href="build/css/production.min.css">
-
+    <link rel="stylesheet" href="../src/css/main.css?__inline=true">
     <!-- /build -->
 
-    <!-- build:remove:deploy -->
-    <link rel="stylesheet" href="libs/bs/css/bootstrap.min.css">
-    <link rel="stylesheet" href="fonts/fonts.css">
+    <!-- build:remove:build -->
+    <link rel="stylesheet" href="src/libs/bs/css/bootstrap.min.css">
+    <link rel="stylesheet" href="src/fonts/fonts.css">
     <link rel="stylesheet" href="src/css/main.css">
     <!-- /build -->
 
@@ -212,12 +209,13 @@
         timeout: 2000,
       });
     </script>
-    <script src="build/js/production.min.js"></script>
+    <script src="../src/js/builder.js?__inline=true"></script>
+    <script src="../src/js/custom.js?__inline=true"></script>
     <!-- /build -->
 
-    <!-- build:remove:deploy -->
-    <script src="libs/jquery-3.1.1.min.js"></script>
-    <script src="libs/bs/js/bootstrap.min.js"></script>
+    <!-- build:remove:build -->
+    <script src="src/libs/jquery-3.1.1.min.js"></script>
+    <script src="src/libs/bs/js/bootstrap.min.js"></script>
     <script src="src/js/builder.js"></script>
     <script src="src/js/custom.js"></script>
     <!-- /build -->

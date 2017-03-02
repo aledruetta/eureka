@@ -3,66 +3,6 @@ module.exports = function(grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
 
-        uglify: {
-            options: {
-                sourceMap: true,
-            },
-            deploy: {
-                files: [{
-                    expand: true,
-                    cwd: 'src/js',
-                    src: '*.js',
-                    dest: 'tmp',
-                    ext: '.min.js'
-                }]
-            }
-        },
-
-        cssmin: {
-            options: {
-                sourceMap: true,
-            },
-            deploy: {
-                files: [{
-                    expand: true,
-                    cwd: 'src/css',
-                    src: '*.css',
-                    dest: 'tmp',
-                    ext: '.min.css'
-                }]
-            }
-        },
-
-        concat: {
-            options: {
-                sourceMap: true,
-            },
-            deploy: {
-                files: [{
-                        src: 'tmp/*.min.js',
-                        dest: 'build/js/production.min.js'
-                    },
-                    {
-                        src: 'tmp/*.min.css',
-                        dest: 'build/css/production.min.css'
-                    },
-                ]
-            }
-        },
-
-        htmlmin: {
-            options: {
-                removeComments: true,
-                collapseWhitespace: true,
-            },
-            deploy: {
-                files: [{
-                    src: 'index.html',
-                    dest: 'index.html'
-                }]
-            }
-        },
-
         image_resize: {
             options: {
                 upscale: true,
@@ -84,16 +24,14 @@ module.exports = function(grunt) {
         responsive_images: {
             options: {
                 sizes: [{
-                        name: '1x',
-                        width: 428,
-                        quality: 80
-                    },
-                    {
-                        name: '2x',
-                        width: 856,
-                        quality: 80
-                    }
-                ]
+                    name: '1x',
+                    width: 428,
+                    quality: 80
+                }, {
+                    name: '2x',
+                    width: 856,
+                    quality: 80
+                }]
             },
             responsive: {
                 files: [{
@@ -111,38 +49,63 @@ module.exports = function(grunt) {
             },
             responsive: {
                 files: [{
-                        expand: true,
-                        cwd: 'build/images/gallery',
-                        src: ['*.jpg', '*.jpeg'],
-                        dest: 'build/images/gallery',
-                        ext: '.jpg',
-                    },
-                    {
-                        expand: true,
-                        cwd: 'src/images/cover',
-                        src: ['*.jpg', '*.jpeg'],
-                        dest: 'build/images/cover',
-                        ext: '.jpg',
-                    }
-                ]
+                    expand: true,
+                    cwd: 'build/images/gallery',
+                    src: ['*.jpg', '*.jpeg'],
+                    dest: 'build/images/gallery',
+                    ext: '.jpg',
+                }, {
+                    expand: true,
+                    cwd: 'src/images/cover',
+                    src: ['*.jpg', '*.jpeg'],
+                    dest: 'build/images/cover',
+                    ext: '.jpg',
+                }]
             }
         },
 
         clean: {
-            tmp: ['tmp/*'],
+            tmp: ['tmp/'],
+            build: ['build/index.html', 'tmp/'],
+            responsive: ['build/images/', 'tmp/'],
         },
 
         processhtml: {
             devel: {
                 files: [{
-                    src: 'src/html/index.html',
-                    dest: 'index.html'
+                    src: 'src/index.html',
+                    dest: 'index.html',
                 }]
             },
-            deploy: {
+            build: {
                 files: [{
-                    src: 'src/html/index.html',
-                    dest: 'index.html'
+                    src: 'src/index.html',
+                    dest: 'build/index.html',
+                }]
+            }
+        },
+
+        inline: {
+            options: {
+                cssmin: true,
+                uglify: true,
+            },
+            build: {
+                files: [{
+                    src: 'build/index.html',
+                }]
+            }
+        },
+
+        htmlmin: {
+            options: {
+                removeComments: true,
+                collapseWhitespace: true,
+            },
+            build: {
+                files: [{
+                    src: 'build/index.html',
+                    dest: 'build/index.html',
                 }]
             }
         },
@@ -151,22 +114,20 @@ module.exports = function(grunt) {
     require('load-grunt-tasks')(grunt);
 
     grunt.registerTask('default', []);
-    grunt.registerTask('images', [
-        'image_resize',
-        'responsive_images',
-        'imagemin',
-        'clean:tmp',
-    ]);
     grunt.registerTask('devel', [
         'processhtml:devel',
-        'clean:tmp',
     ]);
-    grunt.registerTask('deploy', [
-        'uglify:deploy',
-        'cssmin:deploy',
-        'concat:deploy',
-        'processhtml:deploy',
-        'htmlmin:deploy',
+    grunt.registerTask('build', [
+        'clean:build',
+        'processhtml:build',
+        'inline:build',
+        'htmlmin:build',
+    ]);
+    grunt.registerTask('responsive', [
+        'clean:responsive',
+        'image_resize:responsive',
+        'responsive_images:responsive',
+        'imagemin:responsive',
         'clean:tmp',
     ]);
 

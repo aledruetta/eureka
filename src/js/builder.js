@@ -1,10 +1,10 @@
 var HTMLOption = '<option value="%value%">%text%</option>\n';
 var HTMLAnuncioThumbnail = '<div class="col-md-6"><div id="%referencia%" class="thumbnail anuncio"></div></div>\n';
-var HTMLAnuncioImg = '<div class="anuncio-img-container"><img class="img-responsive anuncio-img" src="build/images/gallery/%referencia%-%mostrando%-1x.jpg" alt="%titulo%" ' +
-    'srcset="build/images/gallery/%referencia%-%mostrando%-1x.jpg 1x, build/images/gallery/%referencia%-%mostrando%-2x.jpg 2x"></div>';
-var HTMLGalleryImg = '<img class="img-responsive gallery-img" src="build/images/gallery/%referencia%-%mostrando%-1x.jpg" alt="%titulo%" ' +
-    'srcset="build/images/gallery/%referencia%-%mostrando%-1x.jpg 428w, ' +
-    'build/images/gallery/%referencia%-%mostrando%-2x.jpg 856w">';
+var HTMLAnuncioImg = '<div class="anuncio-img-container"><img class="img-responsive anuncio-img" src="images/gallery/%referencia%-%mostrando%-1x.jpg" alt="%titulo%" ' +
+    'srcset="images/gallery/%referencia%-%mostrando%-1x.jpg 1x, images/gallery/%referencia%-%mostrando%-2x.jpg 2x"></div>';
+var HTMLGalleryImg = '<img class="img-responsive gallery-img" src="images/gallery/%referencia%-%mostrando%-1x.jpg" alt="%titulo%" ' +
+    'srcset="images/gallery/%referencia%-%mostrando%-1x.jpg 428w, ' +
+    'images/gallery/%referencia%-%mostrando%-2x.jpg 856w">';
 var HTMLGalleryChevron = '<div class="gallery-chevron gallery-chevron--%posicion%">\n' +
     '<span class="glyphicon glyphicon-chevron-%posicion%"></span>\n' +
     '</div>\n';
