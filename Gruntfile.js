@@ -3,40 +3,28 @@ module.exports = function(grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
 
-        image_resize: {
+        responsive_images: {
             options: {
-                upscale: true,
-                crop: true,
+                aspectRatio: false,
                 gravity: 'Center',
-                width: 856,
-                height: 535,
+                upscale: false,
+                density: 72,
+                sizes: [{
+                    name: '1x',
+                    width: 428,
+                    height: 267.5,
+                    // quality: 80
+                }, {
+                    name: '2x',
+                    width: 856,
+                    height: 535,
+                    // quality: 80
+                }]
             },
             images: {
                 files: [{
                     expand: true,
                     cwd: 'src/images/gallery',
-                    src: ['*.{jpg,jpeg,png}'],
-                    dest: 'tmp',
-                }]
-            }
-        },
-
-        responsive_images: {
-            options: {
-                sizes: [{
-                    name: '1x',
-                    width: 428,
-                    quality: 80
-                }, {
-                    name: '2x',
-                    width: 856,
-                    quality: 80
-                }]
-            },
-            images: {
-                files: [{
-                    expand: true,
-                    cwd: 'tmp',
                     src: ['*.{jpg,jpeg,png}'],
                     dest: 'build/images/gallery',
                 }]
@@ -117,9 +105,8 @@ module.exports = function(grunt) {
         },
 
         clean: {
-            tmp: ['tmp/'],
-            build: ['build/index.html', 'index.html', 'tmp/', 'images/'],
-            images: ['build/images/', 'tmp/'],
+            build: ['build/index.html', 'index.html'],
+            images: ['build/images/'],
         },
     });
 
@@ -136,10 +123,8 @@ module.exports = function(grunt) {
     ]);
     grunt.registerTask('images', [
         'clean:images',
-        'image_resize:images',
         'responsive_images:images',
         'imagemin:images',
-        'clean:tmp',
     ]);
 
 };
