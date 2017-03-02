@@ -106,7 +106,7 @@ module.exports = function(grunt) {
 
         symlink: {
             options: {
-                overwrite: true,
+                overwrite: false,
             },
             devel: {
                 files: [{
