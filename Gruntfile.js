@@ -13,12 +13,12 @@ module.exports = function(grunt) {
                     name: '1x',
                     width: 428,
                     height: 267.5,
-                    // quality: 80
+                    quality: 80
                 }, {
                     name: '2x',
                     width: 856,
                     height: 535,
-                    // quality: 80
+                    quality: 80
                 }]
             },
             images: {
