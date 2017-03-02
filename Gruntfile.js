@@ -64,12 +64,6 @@ module.exports = function(grunt) {
             }
         },
 
-        clean: {
-            tmp: ['tmp/'],
-            build: ['build/index.html', 'index.html', 'tmp/'],
-            images: ['build/images/', 'tmp/'],
-        },
-
         processhtml: {
             build: {
                 files: [{
@@ -109,6 +103,24 @@ module.exports = function(grunt) {
                 }]
             }
         },
+
+        symlink: {
+            options: {
+                overwrite: true,
+            },
+            devel: {
+                files: [{
+                    src: ['build/images/'],
+                    dest: 'images/',
+                }]
+            }
+        },
+
+        clean: {
+            tmp: ['tmp/'],
+            build: ['build/index.html', 'index.html', 'tmp/', 'images/'],
+            images: ['build/images/', 'tmp/'],
+        },
     });
 
     require('load-grunt-tasks')(grunt);
@@ -118,6 +130,7 @@ module.exports = function(grunt) {
         'clean:build',
         'processhtml:build',
         'processhtml:devel',
+        'symlink:devel',
         'inline:build',
         'htmlmin:build',
     ]);

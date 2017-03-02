@@ -22,6 +22,7 @@
     "grunt-contrib-cssmin": "^2.0.0",
     "grunt-contrib-htmlmin": "^2.2.0",
     "grunt-contrib-imagemin": "^1.0.1",
+    "grunt-contrib-symlink": "^1.0.0",
     "grunt-contrib-uglify": "^2.2.0",
     "grunt-image-resize": "^1.0.0",
     "grunt-inline": "^0.3.6",
