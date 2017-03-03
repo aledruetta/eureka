@@ -5,12 +5,6 @@ var HTMLAnuncioImg = '<div class="anuncio-img-container"><img class="img-respons
 var HTMLGalleryImg = '<img class="img-responsive gallery-img" src="images/gallery/%referencia%-%mostrando%-1x.jpg" alt="%titulo%" ' +
     'srcset="images/gallery/%referencia%-%mostrando%-1x.jpg 428w, ' +
     'images/gallery/%referencia%-%mostrando%-2x.jpg 856w">';
-var HTMLGalleryChevron = '<div class="gallery-chevron gallery-chevron--%posicion%">\n' +
-    '<span class="glyphicon glyphicon-chevron-%posicion%"></span>\n' +
-    '</div>\n';
-var HTMLGalleryRemove = '<div class="gallery-remove">\n' +
-    '<span class="glyphicon glyphicon-remove"></span>\n' +
-    '</div>\n';
 var HTMLAnuncioGalleryClick = '<div class="anuncio-mas-imagens">\n' +
     '<span class="glyphicon glyphicon-search anuncio-gallery-click"></span>\n' +
     '</div>';
@@ -220,11 +214,6 @@ anuncios.append = function() {
 
     var $resultados = $('.resultados-row');
     var count = 1;
-
-    $('.gallery-img-container')
-        .append(HTMLGalleryRemove)
-        .append(HTMLGalleryChevron.replace(/%posicion%/g, 'left'))
-        .append(HTMLGalleryChevron.replace(/%posicion%/g, 'right'));
 
     this.forEach(function(anuncio) {
 
