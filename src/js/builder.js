@@ -1,7 +1,9 @@
 var HTMLOption = '<option value="%value%">%text%</option>\n';
 var HTMLAnuncioThumbnail = '<div class="col-md-6"><div id="%referencia%" class="thumbnail anuncio"></div></div>\n';
-var HTMLAnuncioImg = '<div class="anuncio-img-container"><img class="img-responsive anuncio-img" src="images/gallery/%referencia%-%mostrando%-1x.jpg" alt="%titulo%" ' +
-    'srcset="images/gallery/%referencia%-%mostrando%-1x.jpg 1x, images/gallery/%referencia%-%mostrando%-2x.jpg 2x"></div>';
+var HTMLAnuncioImgCont = '<div class="anuncio-img-container"></div>';
+var HTMLAnuncioImg = '<img class="img-responsive anuncio-img"\n' +
+    'src="images/gallery/%referencia%-%mostrando%-1x.jpg" alt="%titulo%"\n' +
+    'srcset="images/gallery/%referencia%-%mostrando%-1x.jpg 1x, images/gallery/%referencia%-%mostrando%-2x.jpg 2x">';
 var HTMLGalleryImg = '<img class="img-responsive gallery-img" src="images/gallery/%referencia%-%mostrando%-1x.jpg" alt="%titulo%" ' +
     'srcset="images/gallery/%referencia%-%mostrando%-1x.jpg 428w, ' +
     'images/gallery/%referencia%-%mostrando%-2x.jpg 856w">';
@@ -220,10 +222,7 @@ anuncios.append = function() {
         $resultados.append(HTMLAnuncioThumbnail.replace('%referencia%', anuncio.referencia));
 
         $('.anuncio').last()
-            .append(HTMLAnuncioImg
-                .replace(/%referencia%/g, anuncio.referencia)
-                .replace(/%mostrando%/g, anuncio.mostrando)
-                .replace('%titulo%', anuncio.titulo))
+            .append(HTMLAnuncioImgCont)
             .append(HTMLAnuncioBreadcrumb
                 .replace('%tipoTrans%', anuncio.tipoTrans)
                 .replace('%tipoProp%', anuncio.tipoProp)
@@ -231,10 +230,14 @@ anuncios.append = function() {
             .append(HTMLAnuncioCaption.replace(/%titulo%/g, anuncio.titulo));
 
         $('.anuncio-img-container').last()
+            .append(HTMLAnuncioImg
+                .replace(/%referencia%/g, anuncio.referencia)
+                .replace(/%mostrando%/g, anuncio.mostrando)
+                .replace('%titulo%', anuncio.titulo))
             .append(HTMLAnuncioGalleryClick)
             .append(HTMLAnuncioPrecio.replace('%precio%', anuncio.precio));
 
-        $('.anuncio-detalles > h3').last()
+        $('.anuncio-titulo').last()
             .after(HTMLAnuncioCaptionDetalles
             .replace('%referencia%', anuncio.referencia)
             .replace('%direccion%', anuncio.direccion)
