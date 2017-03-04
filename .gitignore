@@ -1,6 +1,5 @@
 .tern-project
 node_modules/
 npm-debug.log
+build/
 tmp/
-images
-index.html

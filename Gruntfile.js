@@ -35,14 +35,23 @@ module.exports = function(grunt) {
             options: {
                 progressive: true,
             },
-            images: {
+            gallery: {
+                options: {
+                    optimization: 3,
+                },
                 files: [{
                     expand: true,
                     cwd: 'build/images/gallery',
                     src: ['*.jpg', '*.jpeg'],
                     dest: 'build/images/gallery',
                     ext: '.jpg',
-                }, {
+                }],
+            },
+            cover: {
+                options: {
+                    optimization: 3,
+                },
+                files: [{
                     expand: true,
                     cwd: 'src/images/cover',
                     src: ['*.jpg', '*.jpeg'],
@@ -53,7 +62,7 @@ module.exports = function(grunt) {
         },
 
         processhtml: {
-            build: {
+            dist: {
                 files: [{
                     src: ['src/index.html'],
                     dest: 'build/index.html',
@@ -62,7 +71,7 @@ module.exports = function(grunt) {
             devel: {
                 files: [{
                     src: ['src/index.html'],
-                    dest: 'index.html',
+                    dest: 'build/index.html',
                 }],
             },
         },
@@ -72,9 +81,10 @@ module.exports = function(grunt) {
                 cssmin: true,
                 uglify: true,
             },
-            build: {
+            dist: {
                 files: [{
                     src: ['build/index.html'],
+                    dest: 'build/index.html',
                 }]
             }
         },
@@ -84,7 +94,7 @@ module.exports = function(grunt) {
                 removeComments: true,
                 collapseWhitespace: true,
             },
-            build: {
+            dist: {
                 files: [{
                     src: ['build/index.html'],
                     dest: 'build/index.html',
@@ -92,20 +102,8 @@ module.exports = function(grunt) {
             }
         },
 
-        symlink: {
-            options: {
-                overwrite: false,
-            },
-            devel: {
-                files: [{
-                    src: ['build/images/'],
-                    dest: 'images/',
-                }]
-            }
-        },
-
         clean: {
-            build: ['build/index.html', 'index.html'],
+            index: ['build/index.html'],
             images: ['build/images/'],
         },
     });
@@ -113,18 +111,21 @@ module.exports = function(grunt) {
     require('load-grunt-tasks')(grunt);
 
     grunt.registerTask('default', []);
-    grunt.registerTask('build', [
-        'clean:build',
-        'processhtml:build',
+    grunt.registerTask('dist', [
+        'clean:index',
+        'processhtml:dist',
+        'inline:dist',
+        'htmlmin:dist',
+    ]);
+    grunt.registerTask('devel', [
+        'clean:index',
         'processhtml:devel',
-        'symlink:devel',
-        'inline:build',
-        'htmlmin:build',
     ]);
     grunt.registerTask('images', [
         'clean:images',
         'responsive_images:images',
-        'imagemin:images',
+        'imagemin:cover',
+        'imagemin:gallery',
     ]);
 
 };
