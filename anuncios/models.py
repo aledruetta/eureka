@@ -13,50 +13,46 @@ class Anuncio(models.Model):
         ('H', 'Ha'),
     )
     titulo = models.CharField(
-        max_length=250,
         verbose_name='Título',
+        max_length=250,
     )
     creado = models.DateTimeField(
-        auto_now_add=True,
         verbose_name='Creado en',
+        auto_now_add=True,
     )
     creadoPor = models.ForeignKey(
         User,
-        related_name='anuncios_creados',
         verbose_name='Creado por',
+        related_name='anuncios_creados',
         default='',  # current user?
         on_delete=models.PROTECT,
     )
     actualizado = models.DateTimeField(
-        auto_now=True,
         verbose_name='Actualizado en',
+        auto_now=True,
     )
     actualizadoPor = models.ForeignKey(
         User,
-        related_name='anuncios_actualizados',
         verbose_name='Actualizado por',
+        related_name='anuncios_actualizados',
         on_delete=models.PROTECT,
     )
-    publicado = models.DateTimeField(
-        default=timezone.now,
-        verbose_name='Publicado en',
-    )
     activo = models.BooleanField(
-        default=True,
         verbose_name='Activo?',
+        default=True,
     )
     destacado = models.BooleanField(
-        default=False,
         verbose_name='Destacado?',
+        default=False,
     )
     tipoTrans = models.CharField(
+        verbose_name='Tipo Transacción',
         max_length=1,
         choices=TIPO_TRANS_CHOICES,
-        verbose_name='Tipo de Transacción',
     )
     tipoProp = models.ForeignKey(
         'TipoPropiedad',
-        verbose_name='Tipo de Propiedad',
+        verbose_name='Tipo Propiedad',
         on_delete=models.PROTECT,
     )
     ciudad = models.ForeignKey(
@@ -66,25 +62,25 @@ class Anuncio(models.Model):
     )
     tipoDom = models.ForeignKey(
         'TipoDomicilio',
-        verbose_name='Tipo de Domicilio',
+        verbose_name='Tipo Domicilio',
         on_delete=models.PROTECT,
     )
     domicilio = models.CharField(
-        max_length=50,
         verbose_name='Domicilio',
+        max_length=50,
     )
     numero = models.PositiveSmallIntegerField(
-        default=0,
         verbose_name='Número',
+        default=0,
     )
     terreno = models.PositiveIntegerField(
-        default=0,
         verbose_name='Terreno',
+        default=0,
     )
     unidad = models.CharField(
+        verbose_name='Unidad',
         max_length=1,
         choices=UNIDAD_TERRENO_CHOICES,
-        verbose_name='Unidad',
     )
     habitaciones = models.PositiveSmallIntegerField(
         verbose_name='Habitaciones',
@@ -99,12 +95,12 @@ class Anuncio(models.Model):
         verbose_name='Precio',
     )
     descripcion = models.TextField(
-        null=True,
         verbose_name='Descripción',
+        null=True,
     )
 
     class Meta:
-        ordering = ('-publicado',)
+        ordering = ('-creado',)
         verbose_name = 'Anuncio'
 
     def __str__(self):
@@ -113,8 +109,8 @@ class Anuncio(models.Model):
 
 class Ciudad(models.Model):
     nombre = models.CharField(
+        verbose_name='Nombre Ciudad',
         max_length=50,
-        primary_key=True,
     )
 
     class Meta:
@@ -126,8 +122,8 @@ class Ciudad(models.Model):
 
 class TipoDomicilio(models.Model):
     tipo = models.CharField(
+        verbose_name='Tipo Domicilio',
         max_length=15,
-        primary_key=True,
     )
 
     def __str__(self):
@@ -136,8 +132,8 @@ class TipoDomicilio(models.Model):
 
 class TipoPropiedad(models.Model):
     tipo = models.CharField(
+        verbose_name='Tipo Propiedad',
         max_length=15,
-        primary_key=True,
     )
 
     class Meta:
