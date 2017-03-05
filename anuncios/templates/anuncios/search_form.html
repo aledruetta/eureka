@@ -1,0 +1,68 @@
+
+          <div class="search-form col-sm-4 col-md-3">
+            <form class="" action="index.html" method="post">
+
+              <!-- Button Group Tipo Transacción -->
+              <div class="bt-grp-tipoTrans btn-group" role="group">
+                <button type="button" id="bt-venta" class="btn btn-primary">Venta</button>
+                <button type="button" id="bt-alquiler" class="btn btn-primary">Alquiler</button>
+              </div>
+
+              <div class="search-form-groups">
+
+                <div class="form-group">
+                  <label class="" for="tipoProp">Tipo Propiedad</label>
+                  <select id="tipoProp" class="form-control" name="tipoProp">
+                    {% for propiedad in propiedades %}
+                      <option value="{{propiedad.tipo}}">{{propiedad.tipo}}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label class="" for="ciudad">Ciudad</label>
+                  <select id="ciudad" class="form-control" name="ciudad">
+                    {% for ciudad in ciudades %}
+                      <option value="{{ciudad.nombre}}">{{ciudad.nombre}}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label class="" for="precio-min">Precio Mínimo</label>
+                  <output class="" for="precio-min" name="result-min">50000</output>
+                  <input type="range" id="precio-min" class="form-control" name="precio-min"
+                      min="0" max="1000000" step="1000" value="50000">
+
+                  <label class="" for="precio-max">Precio Máximo</label>
+                  <output class="" for="precio-max" name="result-max">350000</output>
+                  <input type="range" id="precio-max" class="form-control" name="precio-max"
+                      min="0" max="1000000" step="1000" value="350000">
+                </div>
+
+                <div class="form-group">
+                    <label class="" for="habitaciones">Habitaciones</label>
+                    <input type="number" id="habitaciones" class="form-control"
+                        name="habitaciones" value="0">
+                </div>
+
+                <div class="form-group">
+                  <div class="checkbox">
+                    <label for="cochera"><input type="checkbox" id="cochera"
+                        name="cochera" value=""> Cochera</label>
+                  </div>
+
+                  <div class="checkbox">
+                    <label for="pileta"><input type="checkbox" id="pileta"
+                        name="pileta" value=""> Pileta</label>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary center-block">Consultar</button>
+              </div>
+
+            </form>
+          </div> <!-- END .col -->
