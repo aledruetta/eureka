@@ -1,4 +1,3 @@
-var HTMLOption = '<option value="%value%">%text%</option>\n';
 var HTMLAnuncioThumbnail = '<div class="col-md-6"><div id="%referencia%" class="thumbnail anuncio"></div></div>\n';
 var HTMLAnuncioImgCont = '<div class="anuncio-img-container"></div>';
 var HTMLAnuncioImg = '<img class="img-responsive anuncio-img"\n' +
@@ -37,84 +36,6 @@ var HTMLAnuncioCaptionDetalles = '<ul class="list-unstyled collapse anuncio-mas-
     '<li><span>Descripción:</span>%descripcion%</li>\n' +
     '</ul>\n';
 var HTMLgalleryClearfix = '<div class="clearfix visible-md visible-lg"></div>\n';
-
-var options = {
-    'search': {
-        'cities': [{
-                'value': 'todas',
-                'text': 'Todas',
-                'km': false
-            },
-            {
-                'value': 'santa fe',
-                'text': 'Santa Fe',
-                'km': false
-            },
-            {
-                'value': 'santo tome',
-                'text': 'Santo Tomé',
-                'km': false
-            },
-            {
-                'value': 'la guardia',
-                'text': 'La Guardia',
-                'km': true
-            },
-            {
-                'value': 'colastine',
-                'text': 'Colastiné',
-                'km': true
-            },
-            {
-                'value': 'rincon',
-                'text': 'Rincón',
-                'km': true
-            },
-            {
-                'value': 'arroyo leyes',
-                'text': 'Arroyo Leyes',
-                'km': true
-            },
-        ],
-        'tipoProp': [{
-                'value': 'todas',
-                'text': 'Todas',
-            },
-            {
-                'value': 'casa',
-                'text': 'Casa'
-            },
-            {
-                'value': 'departamento',
-                'text': 'Departamento'
-            },
-            {
-                'value': 'terreno',
-                'text': 'Terreno'
-            },
-            {
-                'value': 'cochera',
-                'text': 'Cochera'
-            },
-            {
-                'value': 'galpon',
-                'text': 'Galpón'
-            },
-            {
-                'value': 'local',
-                'text': 'Local'
-            },
-            {
-                'value': 'oficina',
-                'text': 'Oficina'
-            },
-            {
-                'value': 'quinta',
-                'text': 'Quinta'
-            },
-        ],
-    },
-};
 
 var anuncios = [{
         'referencia': '6069',
@@ -181,34 +102,6 @@ var anuncios = [{
         'descripcion': '2 dorm, cocina comedor, baño, galería/cochera para 2 autos, piscina',
     },
 ];
-
-options.search.appendCities = function() {
-
-    var $ciudad = $('#ciudad');
-
-    this.cities.forEach(function(city) {
-
-        var formattedOption = HTMLOption
-            .replace('%value%', city.value)
-            .replace('%text%', city.text);
-
-        $ciudad.append(formattedOption);
-    });
-};
-
-options.search.appendTipoProp = function() {
-
-    var $tipoProp = $('#tipoProp');
-
-    this.tipoProp.forEach(function(prop) {
-
-        var formattedOption = HTMLOption
-            .replace('%value%', prop.value)
-            .replace('%text%', prop.text);
-
-        $tipoProp.append(formattedOption);
-    });
-};
 
 /* ANUNCIOS
 ==================================================== */

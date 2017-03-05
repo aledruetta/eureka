@@ -1,7 +1,5 @@
 $(document).ready(function() {
 
-    options.search.appendCities();
-    options.search.appendTipoProp();
     anuncios.append();
 
     // links de navegación página principal
