@@ -14,7 +14,7 @@ class Anuncio(models.Model):
     )
 
     referencia = models.AutoField(
-        verbose_name='Referencia',
+        verbose_name='Ref.',
         primary_key=True,
     )
     titulo = models.CharField(
@@ -25,23 +25,23 @@ class Anuncio(models.Model):
         verbose_name='Creado en',
         auto_now_add=True,
     )
-    creadoPor = models.ForeignKey(
-        User,
-        verbose_name='Creado por',
-        related_name='anuncios_creados',
-        default='',  # current user?
-        on_delete=models.PROTECT,
-    )
-    actualizado = models.DateTimeField(
-        verbose_name='Actualizado en',
-        auto_now=True,
-    )
-    actualizadoPor = models.ForeignKey(
-        User,
-        verbose_name='Actualizado por',
-        related_name='anuncios_actualizados',
-        on_delete=models.PROTECT,
-    )
+    # creadoPor = models.ForeignKey(
+    #     User,
+    #     verbose_name='Creado por',
+    #     related_name='anuncios_creados',
+    # default='',  # current user?
+    #     on_delete=models.PROTECT,
+    # )
+    # actualizado = models.DateTimeField(
+    #     verbose_name='Actualizado en',
+    #     auto_now=True,
+    # )
+    # actualizadoPor = models.ForeignKey(
+    #     User,
+    #     verbose_name='Actualizado por',
+    #     related_name='anuncios_actualizados',
+    #     on_delete=models.PROTECT,
+    # )
     activo = models.BooleanField(
         verbose_name='Activo?',
         default=True,

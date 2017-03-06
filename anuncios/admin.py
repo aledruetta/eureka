@@ -8,7 +8,7 @@ from .models import TipoPropiedad
 class AnuncioAdmin(admin.ModelAdmin):
     list_display = ('titulo', 'referencia', 'tipoProp', 'tipoTrans', 'ciudad')
     list_filter = ('creado', 'activo', 'destacado')
-    search_fields = ('titulo', 'descripcion', 'referencia')
+    search_fields = ('titulo', 'descripcion')
     readonly_fields = ('referencia',)
 
 
