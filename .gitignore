@@ -94,3 +94,10 @@ ENV/
 
 # Rope project settings
 .ropeproject
+
+# JavaScript, NodeJS
+.tern-project
+node_modules/
+npm-debug.log
+build/
+tmp/
