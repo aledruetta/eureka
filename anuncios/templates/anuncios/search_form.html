@@ -13,8 +13,9 @@
                 <div class="form-group">
                   <label class="" for="tipoProp">Tipo Propiedad</label>
                   <select id="tipoProp" class="form-control" name="tipoProp">
+                    <option value="Todas" selected>Todas</option>
                     {% for propiedad in propiedades %}
-                      <option value="{{propiedad.tipo}}">{{propiedad.tipo}}</option>
+                    <option value="{{ propiedad.tipo }}">{{ propiedad.tipo }}</option>
                     {% endfor %}
                   </select>
                 </div>
@@ -22,8 +23,9 @@
                 <div class="form-group">
                   <label class="" for="ciudad">Ciudad</label>
                   <select id="ciudad" class="form-control" name="ciudad">
+                    <option value="Todas" selected>Todas</option>
                     {% for ciudad in ciudades %}
-                      <option value="{{ciudad.nombre}}">{{ciudad.nombre}}</option>
+                    <option value="{{ ciudad.nombre }}">{{ ciudad.nombre }}</option>
                     {% endfor %}
                   </select>
                 </div>

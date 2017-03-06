@@ -6,9 +6,10 @@ from .models import TipoPropiedad
 
 
 class AnuncioAdmin(admin.ModelAdmin):
-    list_display = ('titulo', 'tipoProp', 'tipoTrans', 'ciudad')
+    list_display = ('titulo', 'referencia', 'tipoProp', 'tipoTrans', 'ciudad')
     list_filter = ('creado', 'activo', 'destacado')
-    search_fields = ('titulo', 'descripcion')
+    search_fields = ('titulo', 'descripcion', 'referencia')
+    readonly_fields = ('referencia',)
 
 
 admin.site.register(Anuncio, AnuncioAdmin)

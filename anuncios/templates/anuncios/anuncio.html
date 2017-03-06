@@ -1,0 +1,45 @@
+
+              <div class="col-md-6">
+                <div id="{{ anuncio.referencia }}" class="thumbnail anuncio">
+                  <div class="anuncio-img-container">
+                    <img class="img-responsive anuncio-img"
+                      src="static/anuncios/images/gallery/ref_{{ anuncio.referencia }}-{{ anuncio.mostrando }}_1x.jpg"
+                      alt="{{ anuncio.titulo|title }}"
+                      srcset="static/anuncios/images/gallery/ref_{{ anuncio.referencia }}-{{ anuncio.mostrando }}_1x.jpg 1x,
+                              static/anuncios/images/gallery/ref_{{ anuncio.referencia }}-{{ anuncio.mostrando }}_2x.jpg 2x">
+                    <div class="anuncio-mas-imagens">
+                      <span class="glyphicon glyphicon-search anuncio-gallery-click"></span>
+                    </div>
+                    <div class="tipo-precio">
+                      <div class="tipo-precio-inner">
+                        <span>{{ anuncio.precio }}</span>
+                      </div>
+                    </div>
+                  </div>
+                  <ol class="breadcrumb anuncio-breadcrumb">
+                    <li>{{ anuncio.tipoTrans }}</li>
+                    <li>{{ anuncio.tipoProp|title }}</li>
+                    <li>{{ anuncio.ciudad|title }}</li>
+                  </ol>
+                  <div class="caption anuncio-detalles">
+                    <h3 class="anuncio-titulo">{{ anuncio.titulo|title }}</h3>
+                    <ul class="list-unstyled collapse anuncio-mas-detalles">
+                      <li><span>Ref:</span>{{ anuncio.referencia }}</li>
+                      {% if anuncio.km > 0 %}
+                      <li><span>Ubicación:</span>Km {{ anuncio.km }}</li>
+                      {% endif %}
+                      <li><span>Dirección:</span>{{ anuncio.domicilio }}</li>
+                      {% if anuncio.terreno > 0 %}
+                      <li><span>Terreno:</span>{{ anuncio.terreno }} {{ anuncio.unidad }}</li>
+                      {% endif %}
+                      <li><span>Habitaciones:</span>{{ anuncio.habitaciones }}</li>
+                      <li><span>Cochera:</span>{{ anuncio.cochera }}</li>
+                      <li><span>Pileta:</span>{{ anuncio.pileta }}</li>
+                      <li><span>Descripción:</span>{{ anuncio.descripcion }}</li>
+                    </ul>
+                    <button type="button" class="btn btn-primary bt-detalles">
+                      <span class="glyphicon glyphicon-eye-open"></span> Más detalles
+                    </button>
+                  </div>
+                </div>
+              </div>

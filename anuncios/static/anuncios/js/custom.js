@@ -1,7 +1,5 @@
 $(document).ready(function() {
 
-    anuncios.append();
-
     // links de navegación página principal
     var $btNavA = $('.bt-nav-link');
     // botones selección tipo de transacción

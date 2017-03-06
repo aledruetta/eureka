@@ -12,6 +12,11 @@ class Anuncio(models.Model):
         ('M', 'm²'),
         ('H', 'Ha'),
     )
+
+    referencia = models.AutoField(
+        verbose_name='Referencia',
+        primary_key=True,
+    )
     titulo = models.CharField(
         verbose_name='Título',
         max_length=250,
@@ -45,6 +50,10 @@ class Anuncio(models.Model):
         verbose_name='Destacado?',
         default=False,
     )
+    mostrando = models.PositiveSmallIntegerField(
+        verbose_name='Foto Destacada',
+        default=1,
+    )
     tipoTrans = models.CharField(
         verbose_name='Tipo Transacción',
         max_length=1,
@@ -59,6 +68,10 @@ class Anuncio(models.Model):
         'Ciudad',
         verbose_name='Ciudad',
         on_delete=models.PROTECT,
+    )
+    kilometro = models.PositiveSmallIntegerField(
+        verbose_name='Km',
+        default=0,
     )
     tipoDom = models.ForeignKey(
         'TipoDomicilio',
@@ -104,7 +117,10 @@ class Anuncio(models.Model):
         verbose_name = 'Anuncio'
 
     def __str__(self):
-        return '{} - {}'.format(self.id, self.titulo)
+        return '{} - {}'.format(
+            self.referencia,
+            self.titulo
+        )
 
 
 class Ciudad(models.Model):
@@ -114,6 +130,7 @@ class Ciudad(models.Model):
     )
 
     class Meta:
+        ordering = ('nombre',)
         verbose_name_plural = 'Ciudades'
 
     def __str__(self):
@@ -126,6 +143,9 @@ class TipoDomicilio(models.Model):
         max_length=15,
     )
 
+    class Meta:
+        ordering = ('tipo',)
+
     def __str__(self):
         return self.tipo
 
@@ -137,6 +157,7 @@ class TipoPropiedad(models.Model):
     )
 
     class Meta:
+        ordering = ('tipo',)
         verbose_name_plural = 'Tipo Propiedades'
 
     def __str__(self):

@@ -1,4 +1,8 @@
 
           <div class="resultados col-sm-8 col-md-9">
-            <div class="row resultados-row"></div>
+            <div class="row resultados-row">
+              {% for anuncio in anuncios %}
+                {% include "anuncios/anuncio.html" with anuncio=anuncio %}
+              {% endfor %}
+            </div>
           </div> <!-- END .col -->
