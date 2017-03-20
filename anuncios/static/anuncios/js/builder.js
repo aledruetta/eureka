@@ -4,4 +4,4 @@ var HTMLGalleryImg = '<img class="img-responsive gallery-img" src="static/anunci
 var HTMLAnuncioBtDetallesInnerDown = '<span class="glyphicon glyphicon-eye-open"></span>';
 var HTMLAnuncioBtDetallesInnerUp = '<span class="glyphicon glyphicon-eye-close"></span>';
 var HTMLAnuncioBtDetallesText = ' Más detalles';
-var HTMLgalleryClearfix = '<div class="clearfix visible-md visible-lg"></div>\n';
+var HTMLgalleryClearfix = '<div class="clearfix visible-md visible-lg"></div>';

@@ -9,7 +9,7 @@ $(document).ready(function() {
 
     var anuncio;
     var $btDetalles = $('.bt-detalles');
-    var $masImagens = $('.anuncio-mas-imagens');
+    var $openGallery = $('.anuncio-mas-imagens');
     var $layer = $('.layer-opaque');
     var $gallery = $('.gallery-img-container');
     var $closeGallery = $('.gallery-remove');
@@ -48,7 +48,8 @@ $(document).ready(function() {
         toggleDetalles(text, $bt);
     });
 
-    $masImagens.click(function() {
+    // EventListener botón "mas-imagens"
+    $openGallery.click(function() {
 
         var $open = $(this);
         var $img = $('.gallery-img');
