@@ -1,29 +1,11 @@
 {% extends "anuncios/base.html" %}
-{% load static %}
 
     <!-- To-Do-List: fill-it -->
     {% block description %}description{% endblock %}
     <!-- To-Do-List: fill-it -->
     {% block keywords %}keywords{% endblock %}
     {% block title %}Eureka | Home{% endblock %}
-    {% block librariesCSS %}
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-      crossorigin="anonymous">
 
-    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-    rel="stylesheet"
-    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
-    crossorigin="anonymous"> -->
-    {% endblock %}
-    {% block customlinks %}
-    <link rel="stylesheet" href="{% static 'anuncios/css/main.css' %}">
-
-    <!-- <link rel="stylesheet" href="/src/libs/bs/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/src/fonts/fonts.css">
-    <link rel="stylesheet" href="/src/css/main.css"> -->
-    {% endblock %}
     {% block content %}
     <div class="site-wrapper">
 
@@ -42,38 +24,4 @@
       </div> <!-- END .container -->
 
     </div> <!-- END .site-wrapper -->
-    {% endblock %}
-
-    {% block librariesJS %}
-    <script
-      src="https://code.jquery.com/jquery-3.1.1.min.js"
-      integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-      crossorigin="anonymous">
-    </script>
-
-    <script
-      src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-      integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-      crossorigin="anonymous">
-    </script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/webfont/1.6.27/webfontloader.js"></script>
-    <script>
-      WebFont.load({
-        google: {
-          families: ['Lora:400,400i',]
-        },
-        timeout: 2000,
-      });
-    </script>
-    {% endblock %}
-
-    {% block customscripts %}
-    <script src="{% static 'anuncios/js/builder.js' %}"></script>
-    <script src="{% static 'anuncios/js/custom.js' %}"></script>
-
-    <!-- <script src="/src/libs/jquery-3.1.1.min.js"></script>
-    <script src="/src/libs/bs/js/bootstrap.min.js"></script>
-    <script src="/src/js/builder.js"></script>
-    <script src="/src/js/custom.js"></script> -->
     {% endblock %}
