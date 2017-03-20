@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Anuncio, Ciudad, TipoPropiedad
+from django.http import JsonResponse
 import locale
 
 
@@ -90,3 +91,14 @@ def home(request):
 
     # Renderiza template y retorna HTTPResponse
     return render(request, 'anuncios/index.html', context)
+
+
+def gallery(request):
+    referencia = request.GET.get('referencia')
+    anuncio = Anuncio.objects.filter(referencia=referencia)[0]
+    data = {
+        'referencia': anuncio.referencia,
+        'titulo': anuncio.titulo,
+        'mostrando': anuncio.mostrando,
+    }
+    return JsonResponse(data)

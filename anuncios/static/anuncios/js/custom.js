@@ -51,24 +51,25 @@ $(document).ready(function() {
     // EventListener botón "mas-imagens"
     $openGallery.click(function() {
 
-        var $open = $(this);
         var $img = $('.gallery-img');
+        var referencia = $(this).parent('div').parent('div').attr('id');
 
-        var id = $open.parent('div').parent('div').attr('id');
-        anuncio = anuncios.find(function(item) {
-            if (item.referencia === id) {
-                return item;
-            }
-        });
+        $.get('/ajax/gallery/', {
+            'referencia': referencia,
+        }, function(data) {
+            anuncio = data;
+            anuncio.fotos = 5;
 
-        $img.remove();
-        $gallery.append(HTMLGalleryImg
+            $img.remove();
+
+            $gallery.append(HTMLGalleryImg
                 .replace(/%referencia%/g, anuncio.referencia)
                 .replace(/%mostrando%/g, anuncio.mostrando)
                 .replace('%titulo%', anuncio.titulo));
+            $layer.show();
 
-        $layer.show();
-        toggleChevron(anuncio);
+            toggleChevron(anuncio);
+        });
     });
 
     $galleryChevron.click(function() {
@@ -138,7 +139,7 @@ $(document).ready(function() {
 
     function toggleDetalles(text, $bt) {
 
-        if ( text === HTMLAnuncioBtDetallesText ) {
+        if (text === HTMLAnuncioBtDetallesText) {
             $bt.siblings('.anuncio-mas-detalles').slideDown('fast');
             $bt.html(HTMLAnuncioBtDetallesInnerUp + ' Menos...');
         } else {
